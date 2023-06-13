@@ -1,0 +1,63 @@
+# Here you can edit the hub selector's format and layout
+# You MUST have PlaceholderAPI for it work.
+
+# Use -1 for all empty slots
+selector_name: "&5Server Selector"
+enabled: true
+selector_item:
+  display_name: "&5Server Selector"
+  item: COMPASS
+  data: 0
+  slot: 3
+  lore:
+    - "§7Use this to §a§nselect§r §7which server"
+    - "§7you wish to play on!"
+    -
+
+Valid-Servers:
+  - FreeBuild
+  - Spawn
+  - Soon
+
+rows: 3
+slots:
+  11:
+    display_name: "§8* §b§lFreeBuild Server"
+    server_name: FreeBuild-01
+    glow: true
+    item: GOLDEN_APPLE
+    data: 1
+    player_commands:
+    console_commands:
+    lore:
+      - "&dDescription"
+      - "&8Only FreeBuild"
+      - "&dStatistics"
+      - "&fVersions: &71.19.4"
+      - "&fOnline: &7%bungee_FreeBuild-01%"
+  13:
+    display_name: "&8* &c&lSpawn"
+    server_name: Lobby
+    glow: true
+    item: DIAMOND_PICKAXE
+    data: 0
+    player_commands:
+    console_commands:
+    lore:
+      - "&dStatistics"
+      - "&fVersions: &71.10.5"
+      - "&fOnline: &7%bungee_Lobby-01%"
+  15:
+    display_name: "&8* &a&lCooming Soon"
+    server_name: skyblock
+    glow: true
+    item: BARRIER
+    data: 0
+    player_commands:
+    console_commands:
+    lore:
+      - "&dDescription"
+      - "&8Cooming Soon"
+      - "&dStatistics"
+      - "&fVersions: &71.19.&k2"
+      - "&fOnline: &7%bungee_skyblock%"

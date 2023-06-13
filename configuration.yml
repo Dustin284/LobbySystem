@@ -1,0 +1,190 @@
+#
+# Plugin: PlatinumHubCore                    |       Author: DarkKnights22
+# Discord: https://discord.gg/6pBKdep        | SpigotMC: https://www.spigotmc.org/resources/authors/darkknights22.328954/
+#
+# PlatinumHubCore Commands & Permissions
+#
+# ========== PERMISSIONS ==========
+# platinumhub.admin - Permission for overriding all events blocked via /phc setup
+# and commands like /setspawn or /setwarp (CCCommand command for admins)
+# platinumhub.silent - Silent join without message
+# platinumhub.command.fly - Permission to /fly command
+# platinumhub.doublejump - Allows to double jump
+# platinumhub.ping - Allows the use of /ping
+# platinumhub.ping.others - Allows the use of /ping <name>
+# platinumhub.privatechatclear - Allows clearing of player's chat
+# platinumhub.chatclear - Allows clearing of all chat
+# platinumhub.world.<world_name_lowercase> - Gives the user access to specified world
+# platinumhub.grapplinghook
+#
+#
+#
+# ========== COMMANDS ==========
+# /phc setup - Opens server configuration menu (requires platinumhub.admin)
+#
+# /spawn - Teleports to default spawn or to spawn that player has permission for
+# /lobby - Teleports to default spawn or to spawn that player has permission for
+# /hub - Teleports to default spawn or to spawn that player has permission for
+# /setspawn [permission] - Sets spawn at your location
+# (you can type permission for custom permssion spawn) (requires platinumhub.admin)
+#
+# /rewards - Opens menu with rewards for daily join points
+#
+# /fly - Toggle flying state (required platinumhub.command.fly)
+# /warp <name> - Teleports to warp of target name
+# /warp - Prints list of warps
+# /setwarp <name> [permission] - Sets warp of target name with optional permssion to teleport
+# (requires platinumhub.admin)
+#
+# /phc addportal <name> <server> - Add new portal to other Bungee Server (requires platinumhub.admin)
+# /phc portalwand - Gives player portal wand (requires platinumhub.admin)
+#
+# /cc - Clears the chat
+# /clearprivatechat - Clears player's chat
+#
+# /ping - Gives your ping
+# /ping <player> - Gives target player's ping
+#
+#
+# /about - Displays the custom message defined in configuration.yml
+# /info - Displays the custom message defined in configuration.yml
+# /help - Displays the custom message defined in configuration.yml
+# /server - Displays the custom message defined in configuration.yml
+#
+#
+# =========== FILES ==========
+# broadcast.yml - Edit broadcast messages here, can be disabled, some nice formatting options available
+# trails.yml - Edit trails perk here
+# customitems.yml - Edit join items here
+# language.yml - Translate plugin messages here
+# rewards.yml - Edit /rewards rewards for daily join points here
+# effects.yml - Edit join potion effects given to player here
+# scoreboard.yml - Edit in-game scoreboard here, some nice formatting options available
+
+
+# List of commands that can't be executed
+Blacklisted-Commands:
+  - "pl"
+  - "version"
+  - "about"
+  - "?"
+
+# MOTD displayed when player joins the server
+# PlaceholderAPI placeholders supported
+Motd-Message:
+  Enabled: false
+  Messages:
+    - "&5Welcome to our server, &d%player%"
+    - "&5There are currently &d%server_online% &5players online!"
+
+# Title sent to players on join
+# PlaceholderAPI supported
+# Set to "none" to disable!
+Join-Title: "none"
+
+# Subtitle sent to players on join
+# PlaceholderAPI supported
+# Set to "none" to disable!
+Join-Subtitle: "none"
+
+# Message broadcasted on player join.
+# Set to "none" to disable!
+# PlaceholderAPI supported
+Join-Message: ""
+
+# Boss bar message on join
+# Set to "none" to disable!
+# PlaceholderAPI supported
+Join-Bossbar: "§5§lWelcome to our BloxUnited!"
+
+# Message broadcasted on player quit.
+# Set to "none" to disable!
+# PlaceholderAPI supported
+Quit-Message: ""
+
+# PlaceholderAPI supported
+Tablist:
+  Enabled: false
+  Header: "&f&l- &5&lPLAY.YOURSERVER.NET &f&l-"
+  Footer: "&d&lBUY RANKS AND MORE @ STORE.YOURSERVER.NET"
+
+# Points given to player on daily join
+Daily-Login-Points: 10
+Daily-Points-Enabled: true
+
+# List of blocked words that trigger anti swear
+Swear-Words:
+  - "fuck"
+  - "bitch"
+  - "cunt"
+  - "shit"
+  - "asshole"
+  - "dick"
+  - "bullshit"
+
+Server-MOTD:
+  Messages:
+    Standard:
+      Line-1: "§6&l    Welcome to this server!"
+      Line-2: "&5&lOnline: &f%online%"
+      Enabled: false
+    Maintenance:
+      Line-1: "&c&lThe server is under maintenance"
+      Line-2: "&7Please join back later!"
+      Enabled: false
+
+# Add x amount of slots to player limit per join.
+# This is unlimited player limit!
+Player-Limit:
+  amount: 1
+  enabled: true
+
+# Send custom messages with the following commands:
+# /about
+# /info
+# /help
+# /server
+# Leave permission as "none" to disable permission
+# You can set a message to be displayed if the command is not enabled. Set this to "none" to display no message. Leave this to "none" to disable this message.
+# PlaceholderAPI supported
+custom-commands:
+  about:
+    enabled: false
+    permission: "platinumhub.about"
+    message: "&aWelcome to our server, &e%player%&a! &aWe are a server running &3PlatinumHubCore&a!\n
+    &aMake sure to checkout &bDarkKnights22&a!"
+    command-not-enabled: "&cThis command is not available right now. Contact &4Admins &cfor further support"
+  info:
+    enabled: false
+    permission: "platinumhub.info"
+    message: "&aWe are the best custom &bFactions &aand &bSkyblock &aserver&a!\n
+    &aWe are also getting &c&lFACTIONS &asoon!"
+    command-not-enabled: "&cThis command is not available right now. Contact &4Admins &cfor further support"
+  help:
+    enabled: false
+    permission: "platinumhub.help"
+    message: "&aDo &b/phc fly &ato fly!\n
+    &aDo &b/buy &ato buy special items!"
+    command-not-enabled: "&cThis command is not available right now. Contact &4Admins &cfor further support"
+  server:
+    enabled: false
+    permission: "platinumhub.server"
+    message: "&aWe currently have the following servers:\n
+    &c&lFACTIONS\n
+    &b&lSKYBLOCK\n
+    &e&lPRISON"
+    command-not-enabled: "§cThis command is not available right now. Contact §4Admins §cfor further support"
+
+#Whitelist worlds that hub items appear in player's inventories
+Items-World-Whitelist:
+  - "world"
+  - "world_2"
+
+#Whitelist worlds that double jump is allowed in
+Double-Jump-World-Whitelist:
+  - "world"
+  - "world_2"
+#Cooldown before player can hide/unhide players
+Hider-Item-Cooldown: 3
+
+Firework-Enabled: true
