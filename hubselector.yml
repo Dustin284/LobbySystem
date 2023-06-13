@@ -1,0 +1,44 @@
+# Here you can edit the hub selector"s format and layout
+# You MUST have PlaceholderAPI for it work.
+
+# Use -1 for all empty slots
+selector_name: "&5Hub Selector"
+enabled: true
+selector_item:
+  display_name: "&5Hub Selector"
+  item: WATCH
+  data: 0
+  slot: 5
+  lore:
+
+rows: 3
+slots:
+  11:
+    display_name: "§8* §b§lFreeBuild"
+    server_name: FreeBuild
+    glow: true
+    item: GOLDEN_APPLE
+    data: 1
+    console_commands:
+    lore:
+      - "§dTeleoprt to FreeBuild"
+  13:
+    display_name: "§8* §b§lSpawn"
+    server_name: Spawn
+    glow: true
+    item: GOLDEN_APPLE
+    data: 1
+    player_commands:
+    console_commands:
+    lore:
+      - "§dTeleport to Spawn"
+  15:
+    display_name: "§8* §b§lCooming Soon"
+    server_name: Soon
+    glow: true
+    item: GOLDEN_APPLE
+    data: 1
+    player_commands:
+    console_commands:
+    lore:
+      - "§dCooming Soon"

@@ -1,0 +1,72 @@
+# 'Player-Trails' name is hardcoded in code so don't change this name!!
+Player-Trails:
+  # Material name, must be valid material for your version!!!
+  # Materials list: https://minecraft-ids.grahamedgecombe.com/ (for 1.12 and probably some lower versions)
+  material: MAGMA_CREAM
+  # Name of item
+  name: "&d&lTrails &7&o((Right-Click))"
+  # Lore of item
+  # Set this to ["none"] to have no lore
+  lore:
+    - "&7Click to open trails menu!"
+    #- "&7Something else that is commented"
+  # Slot in inventory where to put item, SLOTS ARE COUNTED FROM 0 NOT 1, SO MAX 8 SLOTS NOT 9!!!
+  slot: 0
+  # If the item is enabled or not
+  enabled: true
+  # Commands that execute when the item is right-clicked
+  commands:
+
+# 'Grappling-Hook' name is hardcoded in code so don't change this name!!
+Grappling-Hook:
+  material: FISHING_ROD
+  name: "&f&lGrappling Hook &7&o((Right-Click))"
+  lore:
+    - "&7Click to use the grappling hook!"
+  slot: 2
+  enabled: true
+  commands:
+
+# 'Music-Noteblocks' name is hardcoded in code so don't change this name!!
+Music-Noteblocks:
+  material: NOTE_BLOCK
+  name: "&5&lMusic &7&o((Right-Click))"
+  lore:
+    - "&7Click to play some nice noteblock music!"
+  slot: 6
+  enabled: true
+  commands:
+
+# 'Player-Hide' name is hardcoded in code so don't change this name!!
+Player-Hide:
+  material: WATCH
+  name: "&c&lDisable Players Visibility &7&o((Right-Click))"
+  lore:
+    - "&7Click to &cdisable &7players visibility!"
+  slot: 8
+  enabled: true
+  commands:
+
+# 'Player-Hide-Toggled' name is hardcoded in code so don't change this name!!
+Player-Hide-Toggled:
+  material: COMPASS
+  name: "&a&lEnable Players Visibility &7&o((Right-Click))"
+  lore:
+    - "&7Click to &aenable &7players visibility!"
+  slot: 8
+  toggleable: true
+  enabled: true
+  commands:
+
+# 'Points-Item' name is hardcoded in code so don't change this name!!
+Points-Item:
+  material: EXPERIENCE_BOTTLE
+  name: "&5&l%points% points &7&o((Right-Click))"
+  lore:
+    - "&7This bottle holds the rewards you have"
+    - "&7collected every day you log onto our server!"
+    - " "
+    - "&c&l(!) &bRight-Click to open Rewards Menu"
+  slot: 7
+  enabled: false
+  commands:

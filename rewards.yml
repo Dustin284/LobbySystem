@@ -1,0 +1,94 @@
+Rewards:
+  #1:
+    # Name of reward
+    #Name: "§aFly"
+    # Description of reward, use ; to split to the next lines
+    #Description: "§7Unlock the fly command!;§7Cost: §d250 §7points;;§8Click to purchase!"
+    # Material represented by this reward in GUI
+    #Material-Name: FEATHER
+    # Cost of the reward in points
+    #Cost: 250
+    # Commands to execute when purchasing reward, %player% placeholder supported
+    # You can even execute commands as player, just use p: before all command, example:
+    #   "p:say Hello me!!!" will say Hello me by player!
+    #
+    # Chance parser is here too! You can set x% chance to execute the code
+    # Example: "chance(10):pex user %player% add essentials.kick" will have 10% chance to give player
+    # essentials kick permission!
+    #
+    # Chances and per player commands can be merged!
+    # Just use: "p:chance(20):say hi me"
+    # Or switch "chance(20):p:say hi me!"
+    #
+    # Since rewards API offers extended rewards module you can even execute the java engine to parse and execute
+    # real java code!
+    # Example:
+    #   - script:player.sendMessage("oh, hi %player%");       Player will say "oh, hi %player name here%"
+    #   - script:player.getInventory().addItem(new org.bukkit.inventory.ItemStack(org.bukkit.Material.DIRT));
+    #                Gives a dirt to the player! Although you can just use /give command
+    #
+    #                               Valid script engine objects:
+    #     player - Player object (API methods https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/Player.html)
+    #     server - Bukkit server object (API methods https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Server.html)
+    #
+    #Commands:
+    #  - "pex user %player% add essentials.fly"
+  2:
+    Name: "&5[&dPlatinumHubCore&5] &7Tag"
+    Description: "&7Unlock the PlatinumHubCore tag!;&7Cost: &d25 &7points;;&8Click to purchase!"
+    Material-Name: NAME_TAG
+    Cost: 25
+    Commands:
+      - "pex user %player% prefix &4[&3PlatinumHubCore&4] "
+  3:
+    Name: "&b[&3DarkKnights22&b] &7Tag"
+    Description: "&7Unlock the DarkKnights22 tag!;&7Cost: &d25 &7points;;&8Click to purchase!"
+    Material-Name: NAME_TAG
+    Cost: 25
+    Commands:
+      - "pex user %player% prefix &b[&3DarkKnights22&b] "
+  4:
+    Name: "&aHeal"
+    Description: "&7Unlock the heal command!;&7Cost: &d200 &7points;;&8Click to purchase!"
+    Material-Name: WHEAT
+    Cost: 200
+    Commands:
+      - "pex user %player% add essentials.heal"
+  5:
+    Name: "&aSpeed"
+    Description: "&7Unlock the speed command!;&7Cost: &d450 &7points;;&8Click to purchase!"
+    Material-Name: SUGAR
+    Cost: 450
+    Commands:
+      - "pex user %player% add essentials.speed"
+  6:
+    Name: "&aHeart Trail"
+    Description: "&7Unlock the heart trail!;&7Cost: &d50 &7points;;&8Click to purchase!"
+    Material-Name: REDSTONE
+    Cost: 50
+    Commands:
+      - "pex user %player% add trails.heart"
+  7:
+    Name: "&aEnchant Trail"
+    Description: "&7Unlock the enchant trail!;&7Cost: &d75 &7points;;&8Click to purchase!"
+    Material-Name: ENCHANTMENT_TABLE
+    Cost: 75
+    Commands:
+      - "pex user %player% add trails.magic"
+  8:
+    Name: "&aSuicide"
+    Description: "&7Unlock the suicide command!;&7Cost: &d100 &7points;;&8Click to purchase!"
+    Material-Name: LEASH
+    Cost: 100
+    Commands:
+      - "pex user %player% add essentials.suicide"
+  9:
+    Name: "&aChainmail Armour"
+    Description: "&7Give yourself chainmail armour!!;&7Cost: &d50 &7points;;&8Click to purchase!"
+    Material-Name: IRON_INGOT
+    Cost: 50
+    Commands:
+      - "give %player% 302 1"
+      - "give %player% 303 1"
+      - "give %player% 304 1"
+      - "give %player% 305 1"

@@ -1,0 +1,18 @@
+Board:
+  Enabled: false
+  Refresh-Time: 40
+  Title: "&5&lPlatinumHubCore"
+  # You can use PlaceholderAPI placeholders here
+  # Placeholders below require `player` and `server` expansions
+  # Refresh time is in seconds
+  Contents:
+    - ""
+    - "&dPlayer Info"
+    - "&5User: &d%player_name%"
+    - "&5Exp: &d%player_level%"
+    - "&5Points: &d%points%"
+    - ""
+    - "&dServer Info"
+    - "&5play.yourserver.net"
+    - "&5store.yourserver.net"
+    - "&5www.yourforums.net"

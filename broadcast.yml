@@ -1,0 +1,26 @@
+#
+#                 Broadcast module configuration
+#
+
+# Should broadcast messages be enabled
+Enabled: false
+
+# Interval in seconds between broadcasts sent
+Interval: 120
+
+# Setup all broadcast messages here.
+# You can use Component Parser tags here to improve your messages even more!
+#    Example:
+#      "&5&l<click:run_command:spawn>CLICK HERE!</click> &dto teleport to the spawn!" -Will teleport player to spawn
+#                                                                                      when he clicks "Click here"
+#      "&a&l<click:suggest_command:spawn>Click me to suggest /spawn!</click" - will suggest /spawn command in chat
+#                                                                              so player can execute it if he wish to
+#      "&6<hover:show_text:&e&lWoah I'm inside this click message!!!>Click me to see text box</click>" - will show
+#                                                                                                       text box on hover
+#
+#      Use ';' to split into next lines
+#
+Broadcasts:
+  - ";&a&lAuto Broadcaster;&c&l70% cheaper &adirt! &6&l<click:run_command:/spawn>Click to buy</click> &6now!;&c&lLIMITED OFFER"
+  - ";&a&lAuto Broadcaster;&6Wazzup, testing the system...;&eBe sure to have fun!"
+  - ";&a&lAuto Broadcaster;&eHave fun here!;&alol"

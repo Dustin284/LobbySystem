@@ -1,0 +1,21 @@
+# Effects configuration section
+# these potion effects will be given to player once they joins the server
+#
+# Particles of effects are invisible to players because this would look bad :)
+
+# Name of effect, can be anything
+speed:
+  # Name of potion, must be valid one!
+  # List of all https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
+  type: SPEED
+  # Level (power) of the effect, higher effect -> better effect
+  # AMPLIFIERS ARE COUNTED FROM 0!!! SO 0 MEANS 1 LEVEL
+  amplifier: 0
+  # Time in minutes player will receive this effect for, don't spam like 99999999999999999999 here because it will throw errors.
+  # Keep 999999999,  for permanent
+  time: 999999999
+  
+jump:
+  type: JUMP
+  amplifier: 2
+  time: 999999999

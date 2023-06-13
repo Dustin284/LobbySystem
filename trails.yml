@@ -1,0 +1,41 @@
+# All particle names
+# Particles: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Particle.html (remember it's for 1.13 not all may work!!)
+
+
+# Trail name, can be anything you want
+flames:
+  # Material name, must be valid material for your version!!!
+  # Materials list: https://minecraft-ids.grahamedgecombe.com/ (for 1.12 and probably some lower versions)
+  material: BLAZE_POWDER
+  # Name of item in gui, color codes (&) supported
+  name: "&6&lFlames"
+  # Lore of item, split it to the next line adding ';' character like &7Hello;&7hi! will split '&7hi!' under.
+  lore: "&7Flame Particle Effect!"
+  # Permission to access the trail - can be anything you want!
+  permission: trails.flames
+  # Valid particle name https://mcreator.net/wiki/particles-ids (1.8+, no 1.13)
+  # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Particle.html (1.13+)
+  # Some particles can and will throw errors when used, if you occur errors when equipping particles that
+  # is spamming your console that's probably this cause!!! Use different particle then!!!
+  particle: FLAME
+
+crit:
+  material: DIAMOND_SWORD
+  name: "&6&lCritical"
+  lore: "&7Crit Particle Effect!"
+  permission: trails.crit
+  particle: CRIT
+
+heart:
+  material: REDSTONE
+  name: "&c&lHearts"
+  lore: "&7Heart Particle Effect!"
+  permission: trails.heart
+  particle: HEART
+
+spell:
+  material: POTION
+  name: "&5&lSpell"
+  lore: "&7Spell Particle Effect!"
+  permission: trails.potion
+  particle: SPELL

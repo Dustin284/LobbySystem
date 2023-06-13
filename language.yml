@@ -1,0 +1,103 @@
+# Translate plugin messages here
+# Please note that /setspawn sets spawn for /hub, /lobby, and /spawn. You can change the message for the commands.
+
+# %target% is used for getting the target player's name
+# %player% is used for getting the target player's name
+# %ping% is used for getting your ping
+
+Commands:
+  Prefix: "&5[&dPlatinumHubCore&5] &f"
+  Blacklisted: "&cThis command is &c&nblacklisted&r on the server!"
+  Option-Changed: "&5Option &5&nsuccessfully&r &6changed to &d%option%!"
+  No-Permission: "&c&l(&4&l!&c&l) &cYou don't have &c&npermission&r to preform this command!"
+  Too-Few-Arguments: "&cToo few arguments!"
+  Only-Player: "&cOnly players can execute this command!"
+  Player-Not-Found: "&cThe player specified cannot be found!"
+
+  Teleported-To-Spawn: "&5You were teleported to the server spawn!"
+  Teleported-To-Hub: "&5You were teleported to the server hub!"
+  Teleported-To-Lobby: "&5You were teleported to the server lobby!"
+
+  Spawn-Set: "&5The spawn has been &d&nsuccessfully&r &5set!"
+  Spawn-Set-Perm: "&5The spawn for users with permission &d%perm% &5has been &d&nsuccessfully&r &5set!"
+
+  Help-Command:
+    Header: "&5&lPlatinumHubCore &d&lCommands:"
+    Description: " &5/phc spawn &d- Teleports you to the spawn!\n
+  &5/phc setspawn [permission] &d- Sets the spawn at your location with an optional permission!\n
+  &5/phc setwarp <warp> [permission] &d- Set a warp with an optional permission!\n
+  &5/rewards &d- Opens the rewards menu!\n
+  &5/phc setup &d- Opens up setup configurator!\n
+  &5/hub &d- Teleports to the default hub or to the hub that player has permission for!\n
+  &5/lobby &d- Teleports to the default lobby or to the lobby that you have permission for!\n
+  &5/phc fly &d- Toggles the ability to fly!\n
+  &5/phc warp &d- Provides a list of all active warps!\n
+  &5/phc addportal <name> <server> &d- Adds a portal to other BungeeCord server!\n
+  &5/phc portalwand &d- Gives player a portal wand\n
+  &5/phc reload  &d- Reloads the plugin!\n
+  &5/clearprivatechat <name>  &d- Clears the targets chat!\n
+  &5/ping  &d- Provides your ping!\n
+  &5/ping <player> &d- Provides the target player's ping!\n
+  &5/about &d- Displays the custom message defined in configuration.yml\n
+  &5/help &d- Displays the custom message defined in configuration.yml\n
+  &5/info &d- Displays the custom message defined in configuration.yml\n
+  &5/server &d- Opens the server selector!"
+
+  Fly-Toggled: "&5Flight has been &d&ntoggled &5%toggle%!"
+  Server-Invalid: "&cThe server is not valid!"
+
+  Warp-Set: "&5Warp &d%name% &5has been created!"
+  Warp-Set-Perm: "&dWarp &d%name% &5with permission &d%perm% &5has been created!"
+  Warp-No-Permission: "&c&l(&4&l!&c&l) &cYou don't have &c&npermission&r &cto teleport to this warp!"
+  Teleported-To-Warp: "&5&nSuccessfully&r &5teleported to &d%name%!"
+  Warp-List: "&5Available warps: &d%warps%"
+  Warp-Not-Found: "&cThat warp cannot be found!"
+  Warp-Exists: "&cWarp with this name already exists!"
+
+  Players-Hidden: "&dPoof! &5Players are hidden for you now!"
+  Players-Unhidden: "&dPoof! &5Players are visible for you now!"
+
+  Clear-Chat: "&5Chat has been cleared by &d%player%!"
+  Private-Clear-Chat: "&5Your chat has been cleared by &d%player%!"
+
+  Your-Ping: "&5Your ping is &d%ping%!"
+  Other-Ping: "&d%target% &5has a ping of &d%ping%!"
+
+  Teleport-Success: "&5Target player has been teleported &d&nsuccessfully!"
+  Numbers-Only: "&dX&5, &dY &5and &dZ &5must be numbers!"
+  World-Not-Found: "&cThe target world could not be found!"
+
+  Reload-Success: "&aYou have &a&nsuccessfully&r &areloaded &dPlatinumHubCore!"
+  Give-Points-Success: "&aYou have &a&nsuccessfully&a given &d%player% %points% &apoints!"
+
+  On-Toggle-Cooldown: "&cYou are still on cooldown for %cooldown% more seconds!"
+
+Menus:
+  Configurator:
+    Inventory-Name: "&5Server Configurator"
+  Trails:
+    Inventory-Name: "&d&lChoose Trails"
+    Equipped: "&5Trail &d&nsuccessfully&r &5equipped!"
+    Removed: "&cYou have &c&nremoved&r &cyour current trail!"
+    Nothing-To-Remove: "&cYou don't have trail a equipped!"
+    Remove-Button:
+      Name: "&c&lRemove Trail"
+      Lore: "&7&o((Click to remove your current trail!))"
+  Music:
+    Inventory-Name: "&d&lPlay Music"
+    Started: "&5Now playing: &d%name% &5by &d%author%!"
+    Stopped: "&cStopped music player!"
+    Item:
+      Name: "&5Play &d%name%"
+      Lore: "&7&o((Click to play this song!))"
+    Stop-Button:
+      Name: "&c&lStop Music"
+      Lore: "&7&o((Click to stop playing the music!))"
+    No-Music-To-Stop: "&cThere is currently no music to stop!"
+  Rewards:
+    Inventory-Name: "&d&lObtainable Rewards"
+    Already-Unlocked: "&5You've already &dunlocked &5this reward!"
+    No-Points: "&5You don't have enough points for this reward! You need &d%more% &5more!"
+    Reward-Obtained: "&a&nSuccessfully&r &apurchased the reward!"
+
+Do-Not-Swear: "&c&lHey! &cSwearing on our server is prohibited!"

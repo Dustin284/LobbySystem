@@ -1,0 +1,18 @@
+name: LobbySystem
+version: '${project.version}'
+main: lobbysystem.lobbysystem.LobbySystem
+api-version: 1.19
+commands:
+  setspawn:
+    description: Set the lobby spawn
+    permission: lobbysystem.setspawn
+    usage: /setspawn
+  spawn:
+    description: Teleport to the lobby spawn
+  build:
+    description: Toggle build mode
+    permission: lobbysystem.build
+  coins:
+    description: Show your coins
+  stats:
+    description: Show your stats
