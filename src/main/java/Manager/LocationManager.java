@@ -1,5 +1,6 @@
 package Manager;
 
+import Webhook.DiscordWebhookSender;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -24,6 +25,7 @@ public class LocationManager {
                 configFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
+                DiscordWebhookSender.sendErrorWebhook(e.toString());
             }
         }
     }
@@ -40,6 +42,7 @@ public class LocationManager {
             config.save(configFile);
         } catch (IOException e) {
             e.printStackTrace();
+            DiscordWebhookSender.sendErrorWebhook(e.toString());
         }
     }
 

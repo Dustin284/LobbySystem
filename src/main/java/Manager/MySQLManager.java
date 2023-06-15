@@ -1,5 +1,6 @@
 package Manager;
 
+import Webhook.DiscordWebhookSender;
 import org.bukkit.Bukkit;
 import org.yaml.snakeyaml.Yaml;
 
@@ -44,10 +45,13 @@ public class MySQLManager {
             connection = DriverManager.getConnection(url, username, password);
 
             System.out.println("Verbindung zur MySQL-Datenbank hergestellt.");
+
         } catch (IOException e) {
             System.out.println("Fehler beim Lesen der MySQL-Konfigurationsdatei.");
+            DiscordWebhookSender.sendErrorWebhook("Fehler beim Lesen der MySQL-Konfigurationsdatei.");
         } catch (SQLException e) {
             System.out.println("Fehler beim Herstellen der Verbindung zur MySQL-Datenbank.  " + e.getMessage());
+            DiscordWebhookSender.sendErrorWebhook("Fehler beim Herstellen der Verbindung zur MySQL-Datenbank.  " + e.getMessage());
         }
     }
 
@@ -61,6 +65,7 @@ public class MySQLManager {
                 connection.close();
             }
         } catch (SQLException e) {
+            DiscordWebhookSender.sendErrorWebhook("Fehler beim Schließen der Verbindung zur MySQL-Datenbank.  " + e.getMessage());
             return;
         }
     }
@@ -105,6 +110,7 @@ public class MySQLManager {
                     writer.write("password: my_password\n");
                     writer.close();
                 } catch (IOException e) {
+                    DiscordWebhookSender.sendErrorWebhook(e.getMessage());
                     return;
                 }
             }
@@ -123,6 +129,7 @@ public class MySQLManager {
         } catch (IOException e) {
             System.out.println("Fehler beim Lesen der Konfigurationsdatei: " + e.getMessage());
             e.printStackTrace();
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
             return null;
         }
     }

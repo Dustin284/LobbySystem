@@ -4,6 +4,7 @@ import Commands.*;
 import Listener.*;
 import Manager.*;
 import Utils.*;
+import Webhook.DiscordWebhookSender;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,8 +12,7 @@ import java.io.File;
 
 public final class LobbySystem extends JavaPlugin {
 
-    public String path = "";
-    MySQLManager mySQLManager = new MySQLManager();
+      MySQLManager mySQLManager = new MySQLManager();
 
     @Override
     public void onEnable() {
@@ -21,6 +21,12 @@ public final class LobbySystem extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§aVersion: " + getDescription().getVersion());
         Bukkit.getConsoleSender().sendMessage("§aAuthor: " + getDescription().getAuthors());
         Bukkit.getConsoleSender().sendMessage("§aWebhook: " + new ConfigManager().getDiscordWebhookLink());
+        DiscordWebhookSender.sendSucessWebhook("------------------------------------");
+        DiscordWebhookSender.sendSucessWebhook("LobbySystem wurde erfolgreich aktiviert!");
+        DiscordWebhookSender.sendSucessWebhook("Version: " + getDescription().getVersion());
+        DiscordWebhookSender.sendSucessWebhook("Author: " + getDescription().getAuthors());
+        DiscordWebhookSender.sendSucessWebhook("------------------------------------");
+
 
 
 
@@ -52,7 +58,7 @@ public final class LobbySystem extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new BlockedListeners(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryCloseListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new ClickListener(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new StatsCommand(), this);
         //1 Sekunde

@@ -2,6 +2,7 @@ package Manager;
 
 import java.util.UUID;
 
+import Webhook.DiscordWebhookSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,6 +31,7 @@ public class PlaytimeManager {
             mySQLManager.disconnect();
         } catch (SQLException e) {
             System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
         }
     }
 
@@ -46,6 +48,7 @@ public class PlaytimeManager {
             mySQLManager.disconnect();
         } catch (SQLException e) {
             System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
         }
     }
 
@@ -66,6 +69,7 @@ public class PlaytimeManager {
             mySQLManager.disconnect();
         } catch (SQLException e) {
             System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
         }
         return playtime;
     }

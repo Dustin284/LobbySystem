@@ -1,16 +1,20 @@
 package Listener;
 
 import Manager.LocationManager;
+import Manager.MessagesManager;
 import Utils.Arrays;
+import Webhook.DiscordWebhookSender;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
 
-public class ClickListener implements Listener {
+public class InventoryClickListener implements Listener {
 
     LocationManager locationManager = new LocationManager();
+    MessagesManager messagesManager = new MessagesManager();
 
     //Navigator Click Event
     @EventHandler
@@ -46,21 +50,22 @@ public class ClickListener implements Listener {
             }
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7")){
                 e.setCancelled(true);
-            }
-            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().getLore().contains("activate")){
+           }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().hasEnchants() == false){
                 p.setAllowFlight(true);
                 Arrays.fly.add(p.getUniqueId());
                 p.closeInventory();
                 e.setCancelled(true);
             }
-            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().getLore().contains("deactivate")){
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().hasEnchants() == true){
                 p.setAllowFlight(false);
                 Arrays.fly.remove(p.getUniqueId());
                 p.closeInventory();
                 e.setCancelled(true);
             }
-            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().getLore().contains("not available")){
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getType() == Material.NETHER_BRICK){
                 e.setCancelled(true);
+                p.sendMessage(messagesManager.getPerksFlyNotAvailable());
                 p.closeInventory();
             }
         }

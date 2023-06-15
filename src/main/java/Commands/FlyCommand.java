@@ -28,7 +28,7 @@ public class FlyCommand implements CommandExecutor {
                     player.sendMessage(messagesManager.getPerksFlyOn());
                 }
             }else{
-                player.sendMessage(messagesManager.getNeedPermission() + "LobbySystem.perks.fly");
+                player.sendMessage(messagesManager.getNeedPermission() + Permissions.LobbySystem_perks_fly);
             }
         }
         return false;

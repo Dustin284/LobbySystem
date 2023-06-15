@@ -33,6 +33,7 @@ public class JoinAndQuitListener implements Listener {
         //Check if Location is Set
         if(locationManager.getLocation("Spawn") == null){
             p.sendMessage(Strings.prefix + "§cSpawn not set!");
+            DiscordWebhookSender.sendErrorWebhook("Spawn not set!");
         }
 
         //Teleport
@@ -48,9 +49,11 @@ public class JoinAndQuitListener implements Listener {
         //Database
         if (mySQLManager.isPlayerExists(p.getUniqueId())) {
             System.out.println("Spieler bereits in der Datenbank vorhanden.");
-        } else {
+            DiscordWebhookSender.sendInfoWebhook("Spieler bereits in der Datenbank vorhanden. (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
+         } else {
             mySQLManager.insertPlayer(p.getUniqueId());
             System.out.println("Spieler wurde zur Datenbank hinzugefügt.");
+            DiscordWebhookSender.sendSucessWebhook("Spieler wurde zur Datenbank hinzugefügt (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
         }
         mySQLManager.updatePlayerJoins(p.getUniqueId());
         mySQLManager.disconnect();
@@ -61,7 +64,7 @@ public class JoinAndQuitListener implements Listener {
         TablistBuilder tablistBuilder = new TablistBuilder();
         tablistBuilder.setAllPlayerTeams();
         tablistBuilder.updateTablist(p);
-        DiscordWebhookSender.sendInfoWebhook(p.getName() + " joined the Server!");
+        DiscordWebhookSender.sendInfoWebhook(p.getName() + " joined the Server! (" + p.getPlayer().getAddress().getAddress().getHostAddress() + ")");
 
     }
     @EventHandler

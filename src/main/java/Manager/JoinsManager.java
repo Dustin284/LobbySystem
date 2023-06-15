@@ -1,5 +1,7 @@
 package Manager;
 
+import Webhook.DiscordWebhookSender;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +27,7 @@ public class JoinsManager {
             mySQLManager.disconnect();
         } catch (SQLException e) {
             System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.toString());
         }
         return playerjoins;
     }

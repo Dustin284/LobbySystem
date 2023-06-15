@@ -1,5 +1,6 @@
 package Manager;
 
+import Webhook.DiscordWebhookSender;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -23,6 +24,7 @@ public class ConfigManager {
                 defaultConfig();
             } catch (IOException e) {
                 e.printStackTrace();
+                DiscordWebhookSender.sendErrorWebhook(e.toString());
             }
         }
     }
@@ -36,6 +38,7 @@ public class ConfigManager {
             config.save(configFile);
         } catch (IOException e) {
             e.printStackTrace();
+            DiscordWebhookSender.sendErrorWebhook(e.toString());
         }
     }
 

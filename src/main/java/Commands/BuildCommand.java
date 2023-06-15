@@ -4,6 +4,7 @@ import Inventorys.LobbyItems;
 import Utils.Arrays;
 import Utils.Permissions;
 import Utils.Strings;
+import Webhook.DiscordWebhookSender;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -32,6 +33,7 @@ public class BuildCommand implements CommandExecutor {
                 Arrays.build.add(p.getUniqueId());
                 p.sendMessage(Strings.build_on);
                 p.setGameMode(GameMode.CREATIVE);
+
             }
         } else {
             p.sendMessage(Strings.noperms + " [" + Permissions.LobbySystem_build + "]");

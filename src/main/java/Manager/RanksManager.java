@@ -1,6 +1,8 @@
 package Manager;
 
 
+import Webhook.DiscordWebhookSender;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,6 +31,7 @@ public class RanksManager {
                 resultSet.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+                DiscordWebhookSender.sendErrorWebhook(e.getMessage());
             }
 
             mySQLManager.disconnect();
