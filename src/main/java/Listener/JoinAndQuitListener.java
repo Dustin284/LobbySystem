@@ -4,6 +4,7 @@ import Inventorys.LobbyItems;
 import Manager.LocationManager;
 import Manager.MySQLManager;
 import Utils.*;
+import Webhook.DiscordWebhookSender;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -60,7 +61,7 @@ public class JoinAndQuitListener implements Listener {
         TablistBuilder tablistBuilder = new TablistBuilder();
         tablistBuilder.setAllPlayerTeams();
         tablistBuilder.updateTablist(p);
-
+        DiscordWebhookSender.sendInfoWebhook(p.getName() + " joined the Server!");
 
     }
     @EventHandler

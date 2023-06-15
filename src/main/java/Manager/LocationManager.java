@@ -14,7 +14,7 @@ public class LocationManager {
     private FileConfiguration config;
 
     public LocationManager() {
-        configFile = new File(Bukkit.getPluginsFolder().getPath() + "locations.yml");
+        configFile = new File(Bukkit.getPluginsFolder().getPath().toString() + "/LobbySystem/locations.yml");
         config = YamlConfiguration.loadConfiguration(configFile);
     }
 

@@ -21,8 +21,10 @@ public class ItemsManager {
     public static ItemStack LS_Inv_Navigator_SkyPvP = ItemsManager.createItem(Material.DIAMOND_SWORD, 1, "§b§lSkyPvP", false, "§7§oFight in the sky!");
     public static ItemStack LS_Inv_Navigator_Spawn = ItemsManager.createItem(Material.NETHER_STAR, 1, "§e§lSpawn", false, "§7§oGo to the spawn!");
 
-
-
+    //Perks Items
+    public static ItemStack LS_Inv_Perks_Fly = ItemsManager.createItem(Material.FEATHER, 1, "§a§lFly", false, "§7§oClick to activate!");
+    public static ItemStack LS_Inv_Perks_Fly_Enchanted = ItemsManager.createItem(Material.FEATHER, 1, "§a§lFly", true, "§7§oClick to deactivate!");
+    public static ItemStack LS_Inv_Perks_Fly_not_available = ItemsManager.createItem(Material.NETHER_BRICK, 1, "§c§lFly", false, "§7§oYou need to buy this perk!");
     public static ItemStack createItem(Material material, int amount, String displayName, Boolean enchated, String... lore) {
         ItemStack item = new ItemStack(material, amount);
         ItemMeta meta = item.getItemMeta();
