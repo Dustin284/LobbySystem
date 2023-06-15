@@ -1,6 +1,7 @@
 name: LobbySystem
 version: '${project.version}'
 main: lobbysystem.lobbysystem.LobbySystem
+author: 'Dustin_284'
 api-version: 1.19
 commands:
   setspawn:
@@ -16,3 +17,8 @@ commands:
     description: Show your coins
   stats:
     description: Show your stats
+  perks:
+    description: Show your perks
+  fly:
+    description: Toggle fly mode
+    permission: lobbysystem.perks.fly

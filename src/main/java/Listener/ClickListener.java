@@ -1,6 +1,7 @@
 package Listener;
 
 import Manager.LocationManager;
+import Utils.Arrays;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,6 +35,33 @@ public class ClickListener implements Listener {
             }
             if(e.getCurrentItem() == null){
                 e.setCancelled(true);
+            }
+        }
+        if(view.getTitle().equals("§6Perks")){
+            if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null){
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§c§lSOON")){
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7")){
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().getLore().contains("activate")){
+                p.setAllowFlight(true);
+                Arrays.fly.add(p.getUniqueId());
+                p.closeInventory();
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().getLore().contains("deactivate")){
+                p.setAllowFlight(false);
+                Arrays.fly.remove(p.getUniqueId());
+                p.closeInventory();
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().getLore().contains("not available")){
+                e.setCancelled(true);
+                p.closeInventory();
             }
         }
     }

@@ -2,10 +2,7 @@ package lobbysystem.lobbysystem;
 
 import Commands.*;
 import Listener.*;
-import Manager.ConfigManager;
-import Manager.LocationManager;
-import Manager.MySQLManager;
-import Manager.PlaytimeManager;
+import Manager.*;
 import Utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +18,11 @@ public final class LobbySystem extends JavaPlugin {
     public void onEnable() {
 
         Bukkit.getConsoleSender().sendMessage("§aLobbySystem wurde erfolgreich aktiviert!");
+        Bukkit.getConsoleSender().sendMessage("§aVersion: " + getDescription().getVersion());
+        Bukkit.getConsoleSender().sendMessage("§aAuthor: " + getDescription().getAuthors());
+        Bukkit.getConsoleSender().sendMessage("§aWebhook: " + new ConfigManager().getDiscordWebhookLink());
+
+
 
         PlaytimeManager playtimeManager = new PlaytimeManager(this);
         playtimeManager.startPlaytimeTimer();
@@ -33,12 +35,16 @@ public final class LobbySystem extends JavaPlugin {
         locationManager.createConfigFileIfNeeded();
         ConfigManager configManager = new ConfigManager();
         configManager.createConfigFileIfNeeded();
+        MessagesManager messagesManager = new MessagesManager();
+        messagesManager.createConfigFileIfNeeded();
         //Commands
         getCommand("setspawn").setExecutor(new SetCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("coins").setExecutor(new CoinsCommand());
         getCommand("stats").setExecutor(new StatsCommand());
+        getCommand("perks").setExecutor(new PerksCommand());
+        getCommand("fly").setExecutor(new FlyCommand());
 
         //Listener
         Bukkit.getServer().getPluginManager().registerEvents(new JoinAndQuitListener(), this);

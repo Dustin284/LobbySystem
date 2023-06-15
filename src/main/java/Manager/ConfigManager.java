@@ -12,7 +12,7 @@ public class ConfigManager {
     private FileConfiguration config;
 
     public ConfigManager() {
-        configFile = new File(Bukkit.getPluginsFolder().getPath() + "config.yml");
+        configFile = new File( Bukkit.getPluginsFolder().getPath().toString() + "/LobbySystem/config.yml");
         config = YamlConfiguration.loadConfiguration(configFile);
     }
 
@@ -31,6 +31,7 @@ public class ConfigManager {
         config.set("prefix", "§5§lBlox§6§lUnited §8§l✘ §7");
         config.set("tablist.header", "&6&lBloxUnited.de");
         config.set("tablist.footer", "&7Dein Netzwerk");
+        config.set("discord.webhookLink", "https://discord.com/api/webhooks/...");
         try {
             config.save(configFile);
         } catch (IOException e) {
@@ -49,5 +50,10 @@ public class ConfigManager {
     public String getPrefix(){
         String Prefix = config.getString("prefix");
         return Prefix;
+    }
+
+    public String getDiscordWebhookLink(){
+        String DiscordWebhookLink = config.getString("discord.webhookLink");
+        return DiscordWebhookLink;
     }
 }

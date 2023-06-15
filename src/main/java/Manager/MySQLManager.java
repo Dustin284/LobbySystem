@@ -14,7 +14,8 @@ import java.util.UUID;
 
 public class MySQLManager {
 
-    private String FILE =Bukkit.getPluginsFolder().getPath() + "MySQL.yml";
+
+    private String FILE = Bukkit.getPluginsFolder().getPath().toString() + "/LobbySystem/MySQL.yml";
     private Connection connection;
 
     public void connect() {
