@@ -15,7 +15,7 @@ public class ItemsManager {
     public static ItemStack LS_glass_pane = ItemsManager.createItem(Material.GRAY_STAINED_GLASS_PANE, 1, "§7", false, "");
     //Inventory
     public static ItemStack LS_Navigator = ItemsManager.createItem(Material.COMPASS, 1, "§6Navigator", true, "§7§oChose your gamemode!");
-
+    public static ItemStack LS_Perks = ItemsManager.createItem(Material.LEGACY_REDSTONE_COMPARATOR, 1, "§6Perks", true, "§7§oChose your perks!");
     //Navigator Items
     public static ItemStack LS_Inv_Navigator_FreeBuild = ItemsManager.createItem(Material.GRASS_BLOCK, 1, "§a§lFreeBuild", false, "§7§oBuild what you want!");
     public static ItemStack LS_Inv_Navigator_SkyPvP = ItemsManager.createItem(Material.DIAMOND_SWORD, 1, "§b§lSkyPvP", false, "§7§oFight in the sky!");

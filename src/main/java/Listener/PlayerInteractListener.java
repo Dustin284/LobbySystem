@@ -1,6 +1,7 @@
 package Listener;
 
 import Inventorys.NavigatorInventory;
+import Inventorys.PerksInventory;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -18,26 +19,25 @@ public class PlayerInteractListener implements Listener {
         Player p = e.getPlayer();
         Action action = e.getAction();
         ItemStack itemStack = p.getInventory().getItemInMainHand();
+        ItemMeta itemMeta = itemStack.getItemMeta();
         if (itemStack == null || itemStack.getType() == null || !itemStack.hasItemMeta()) {
             return;
         }
-
-        ItemMeta itemMeta = itemStack.getItemMeta();
         if (itemMeta.getDisplayName() == null || itemMeta.getLore() == null) {
             return;
         }
-
         if(p.getInventory().getItemInMainHand().getType() == Material.COMPASS && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Navigator")) {
             NavigatorInventory.createInventoryNavigator(p);
+            return;
+        }
+        if(p.getInventory().getItemInMainHand().getItemMeta().hasEnchants() == true && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§6Perks")) {
+            PerksInventory.createPerksInventoryMain(p);
             return;
         }
         if (p.getInventory().getItemInMainHand().getType() == Material.BLAZE_ROD && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Player Hider")) {
             return;
         }
         if (p.getInventory().getItemInMainHand().getType() == Material.BARRIER) {
-            return;
-        }
-        if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Addons")){
             return;
         }
     }

@@ -21,6 +21,9 @@ public class InventoryClickListener implements Listener {
     public void onClick(InventoryClickEvent e){
         Player p = (Player) e.getWhoClicked();
         InventoryView view = e.getView();
+        if(e.getCurrentItem().getType() == Material.NETHER_BRICK){
+            e.setCancelled(true);
+        }
         if(view.getTitle().equals("§6Navigator")){
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFreeBuild")){
                 e.setCancelled(true);

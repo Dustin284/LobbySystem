@@ -18,14 +18,14 @@ public class PerksInventory {
         for (int slot : new int[]{11, 12, 13, 14, 15, 16}) {
             Inv_Setup.setItem(slot, ItemsManager.LS_PC_soon);
         }
-        if(!player.hasPermission(Permissions.LobbySystem_perks_fly) || !player.hasPermission(Permissions.LobbySystem_admin)) {
-            Inv_Setup.setItem(10, ItemsManager.LS_Inv_Perks_Fly_not_available);
-        }
         if(Arrays.fly.contains(player.getUniqueId())){
             Inv_Setup.setItem(10, ItemsManager.LS_Inv_Perks_Fly_Enchanted);
         }
         if(!Arrays.fly.contains(player.getUniqueId())){
             Inv_Setup.setItem(10, ItemsManager.LS_Inv_Perks_Fly);
+        }
+        if(!player.hasPermission(Permissions.LobbySystem_perks_fly) || !player.hasPermission(Permissions.LobbySystem_admin)) {
+            Inv_Setup.setItem(10, ItemsManager.LS_Inv_Perks_Fly_not_available);
         }
         player.openInventory(Inv_Setup);
     }

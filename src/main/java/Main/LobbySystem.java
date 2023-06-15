@@ -1,4 +1,4 @@
-package lobbysystem.lobbysystem;
+package Main;
 
 import Commands.*;
 import Listener.*;

@@ -2,6 +2,7 @@ package Listener;
 
 import Inventorys.LobbyItems;
 import Manager.LocationManager;
+import Manager.MessagesManager;
 import Manager.MySQLManager;
 import Utils.*;
 import Webhook.DiscordWebhookSender;
@@ -20,6 +21,7 @@ public class JoinAndQuitListener implements Listener {
     private MySQLManager mySQLManager = new MySQLManager();
     @EventHandler
     public void onJoin(PlayerJoinEvent e) throws SQLException {
+        MessagesManager messagesManager = new MessagesManager();
         mySQLManager.connect();
         Player p = e.getPlayer();
         e.setJoinMessage("");
@@ -44,6 +46,12 @@ public class JoinAndQuitListener implements Listener {
         if(Arrays.build.contains(p.getUniqueId())) {
             p.sendMessage(Strings.build_off);
             Arrays.build.remove(p.getUniqueId());
+        }
+
+        //Check if player is in Fly
+        if(Arrays.fly.contains(p.getUniqueId())) {
+            p.sendMessage(messagesManager.getPerksFlyOff());
+            Arrays.fly.remove(p.getUniqueId());
         }
 
         //Database
