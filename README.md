@@ -25,7 +25,6 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 6. Starte den Lobby-Server
 
 ## Berechtigungen
-|------------------------------------|---------------------------|
 | Berechtigung                       | Bezeichnung               |
 |------------------------------------|---------------------------|
 | lobbysystem.*                      | Alle LobbySystem-Berechtigungen |
