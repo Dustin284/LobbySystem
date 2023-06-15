@@ -50,7 +50,7 @@ public class JoinAndQuitListener implements Listener {
 
         //Check if player is in Fly
         if(Arrays.fly.contains(p.getUniqueId())) {
-            p.sendMessage(messagesManager.getPerksFlyOff());
+            p.sendMessage(messagesManager.getPrefix() + messagesManager.getPerksFlyOff());
             Arrays.fly.remove(p.getUniqueId());
         }
 
