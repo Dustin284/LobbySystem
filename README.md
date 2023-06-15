@@ -41,3 +41,8 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 | lobbysystem.coins.set              | Spieler-Coins festlegen    |
 | lobbysystem.chat.color             | Farbige Chatnachrichten             |
 |------------------------------------|---------------------------|
+
+<details>
+  <summary>Scoreboard-Spoiler</summary>
+[Scoreboard](https://prnt.sc/nHJsFCAqZyO_)
+</details>
