@@ -44,7 +44,7 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 
 <details>
   <summary>Scoreboard-Spoiler</summary>
-[Scoreboard](https://prnt.sc/nHJsFCAqZyO_)
+  <img src="/assets/x8fcVlxXR7CA_0klFFqzHQ.png"/>
 </details>
 
-<img src="/assets/x8fcVlxXR7CA_0klFFqzHQ.png" alt="MarineGEO circle logo" style="height: 100px; width:100px;"/>
+
