@@ -11,9 +11,15 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 - /coins - Zeigt die Menge der Spieler-Coins an.
 - /stats - Zeigt die Statistiken des Spielers an.
 - /perks - Zeigt die verfügbaren Perks des Spielers an.
+
+## Features
 - Integration von DiscordWebhook zur Benachrichtigungsfunktion.
-- Verwendung einer MySQL-Datenbank zur Speicherung von Daten.
+- Statistiken der Spieler in einer MySQL-Datenbank
 - Integration eines Scoreboards und einer Tablist.
+
+## Vorraussetzung
+- Verwendung einer MySQL-Datenbank zur Speicherung von Daten.
+
 
 ## Installation
 1. Lade die neueste Version des LobbySystem-Releases von [hier](https://github.com/Dustin284/LobbySystem/releases) herunter.
