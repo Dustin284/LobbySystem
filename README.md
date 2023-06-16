@@ -2,7 +2,7 @@
 Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwickelt wurde um eine benutzerfreundliche und skalierbare Lobby-Funktionalität in deine Anwendung zu integrieren.
 
 ## Funktione
-- Chat-Funktionalität innerhalb der Lobbies
+- Chat-Funktionalität innerhalb der Lobby
 - Unterstützung der folgenden Befehle:
 - /setspawn <spawn/freebuild/skypvp> - Setzt den Spawn-Punkt für den angegebenen Spielmodus.
 - /spawn - Teleportiert den Spieler zum Lobby-Spawn-Punkt.
