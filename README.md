@@ -24,7 +24,7 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 ## Installation
 1. Lade die neueste Version des LobbySystem-Releases von [hier](https://github.com/Dustin284/LobbySystem/releases) herunter.
 
-2. Konfiguriere deine MySQL-Datenbank-Zugangsdaten:
+2. Konfiguriere deine MySQL-Datenbank-Zugangsdaten.
 3. Navigiere zum Ordner LobbySystem im Plugins-Verzeichnis.
 4. Öffne die Datei MySQL.yml mit einem Texteditor.
 5. Bearbeite die entsprechenden Felder für den MySQL-Datenbankzugriff und speichere die Datei.
