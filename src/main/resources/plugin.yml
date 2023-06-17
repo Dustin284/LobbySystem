@@ -22,3 +22,5 @@ commands:
   fly:
     description: Toggle fly mode
     permission: lobbysystem.perks.fly
+  playtime:
+    description: Show your playtime

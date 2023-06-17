@@ -1,5 +1,6 @@
 package Inventorys;
 import Manager.ItemsManager;
+import Utils.Arrays;
 import org.bukkit.entity.Player;
 
 public class LobbyItems {
@@ -8,7 +9,12 @@ public class LobbyItems {
         p.getInventory().setItem(0, ItemsManager.LS_Perks);
         p.getInventory().setItem(2, ItemsManager.LS_PC_soon);
         p.getInventory().setItem(4, ItemsManager.LS_Navigator);
-        p.getInventory().setItem(6, ItemsManager.LS_PC_soon);
+        if(Arrays.playerhider.contains(p.getUniqueId())){
+            p.getInventory().setItem(6, ItemsManager.LS_PlayerHider_Hide);
+        }
+        if(!Arrays.playerhider.contains(p.getUniqueId())){
+            p.getInventory().setItem(6, ItemsManager.LS_PlayerHider_Show);
+        }
         p.getInventory().setItem(8, ItemsManager.LS_PC_soon);
     }
 }

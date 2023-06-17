@@ -2,6 +2,7 @@ package Listener;
 
 import Inventorys.NavigatorInventory;
 import Inventorys.PerksInventory;
+import Utils.Arrays;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -34,7 +35,13 @@ public class PlayerInteractListener implements Listener {
             PerksInventory.createPerksInventoryMain(p);
             return;
         }
-        if (p.getInventory().getItemInMainHand().getType() == Material.BLAZE_ROD && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Player Hider")) {
+        if (p.getInventory().getItemInMainHand().getType() == Material.ENDER_EYE && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Show Players")) {
+            Arrays.playerhider.add(p.getUniqueId());
+
+
+            return;
+        }
+        if(p.getInventory().getItemInMainHand().getType() == Material.ENDER_EYE && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Show Players")){
             return;
         }
         if (p.getInventory().getItemInMainHand().getType() == Material.BARRIER) {

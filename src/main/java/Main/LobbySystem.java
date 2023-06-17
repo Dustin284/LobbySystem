@@ -17,6 +17,7 @@ public final class LobbySystem extends JavaPlugin {
     @Override
     public void onEnable() {
 
+
         Bukkit.getConsoleSender().sendMessage("§aLobbySystem wurde erfolgreich aktiviert!");
         Bukkit.getConsoleSender().sendMessage("§aVersion: " + getDescription().getVersion());
         Bukkit.getConsoleSender().sendMessage("§aAuthor: " + getDescription().getAuthors());
@@ -51,6 +52,8 @@ public final class LobbySystem extends JavaPlugin {
         getCommand("stats").setExecutor(new StatsCommand());
         getCommand("perks").setExecutor(new PerksCommand());
         getCommand("fly").setExecutor(new FlyCommand());
+        getCommand("playtime").setExecutor(new PlaytimeCommand());
+
 
         //Listener
         Bukkit.getServer().getPluginManager().registerEvents(new JoinAndQuitListener(), this);
@@ -61,6 +64,7 @@ public final class LobbySystem extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new StatsCommand(), this);
+
         //1 Sekunde
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () ->{
         }, 0L, 20L);

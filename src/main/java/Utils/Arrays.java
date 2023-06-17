@@ -9,4 +9,7 @@ public class Arrays {
 
     //Fly Command
     public static ArrayList<UUID> fly = new ArrayList<>();
+
+    //PlayerHider Command
+    public static ArrayList<UUID> playerhider = new ArrayList<>();
 }

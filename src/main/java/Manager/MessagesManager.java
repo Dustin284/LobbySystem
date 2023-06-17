@@ -39,6 +39,7 @@ public class MessagesManager {
         config.set("set_spawn", "§7Der Spawn wurde gesetzt! §8(§e ");
         config.set("spawn_not_set", "§cSpawn wurde noch nicht gesetzt!");
         config.set("spawn_set_usage", "§cBitte benutze /setspawn <spawn/freebuild/skypvp>");
+        config.set("get_playtime", "§7Deine Spielzeit beträgt: §6");
         config.set("perks.fly_on", "§7Du hast nun §aFly §7aktiviert!");
         config.set("perks.fly_off", "§7Du hast nun §cFly §7deaktiviert!");
         config.set("perks.fly_not_available", "§7Du hast keine Rechte dazu!");
@@ -99,5 +100,9 @@ public class MessagesManager {
     public String getPerksFlyNotAvailable(){
         String perks_fly_not_available = config.getString("perks.fly_not_available");
         return perks_fly_not_available;
+    }
+    public String getGetPlaytime(){
+        String get_playtime = config.getString("get_playtime");
+        return get_playtime;
     }
 }

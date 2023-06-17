@@ -1,4 +1,5 @@
 package Manager;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -16,6 +17,10 @@ public class ItemsManager {
     //Inventory
     public static ItemStack LS_Navigator = ItemsManager.createItem(Material.COMPASS, 1, "§6Navigator", true, "§7§oChose your gamemode!");
     public static ItemStack LS_Perks = ItemsManager.createItem(Material.LEGACY_REDSTONE_COMPARATOR, 1, "§6Perks", true, "§7§oChose your perks!");
+    public static ItemStack LS_PlayerHider_Show = ItemsManager.createItem(Material.ENDER_EYE, 1, ChatColor.GREEN + "Show Players", true, "§7§oAll players are visible!");
+    public static ItemStack LS_PlayerHider_Hide = ItemsManager.createItem(Material.ENDER_PEARL, 1, ChatColor.RED + "Hide Players", true, "§7§oAll players are hidden!");
+
+
     //Navigator Items
     public static ItemStack LS_Inv_Navigator_FreeBuild = ItemsManager.createItem(Material.GRASS_BLOCK, 1, "§a§lFreeBuild", false, "§7§oBuild what you want!");
     public static ItemStack LS_Inv_Navigator_SkyPvP = ItemsManager.createItem(Material.DIAMOND_SWORD, 1, "§b§lSkyPvP", false, "§7§oFight in the sky!");
