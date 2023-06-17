@@ -9,12 +9,18 @@ import org.bukkit.inventory.Inventory;
 
 public class StatsInventory {
 
+
+
     public static void createStatsInventoryMain(Player player, Player target) {
+        RanksManager ranksManager = new RanksManager();
+        String tmp = ranksManager.getCurrentRank(target.getUniqueId());
+        String rank = tmp.substring(3);
         Inventory Inv_Setup = Bukkit.createInventory(null, 9 * 3, "§6Stats-Main ✘ " + target.getName());
         for (int slot : new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}) {
             Inv_Setup.setItem(slot, ItemsManager.LS_glass_pane);
         }
         Inv_Setup.setItem(10, ItemsManager.createItem(Material.GRASS_BLOCK, 1, "Lobby", false, "Click for Lobby Stats"));
+        Inv_Setup.setItem(16, ItemsManager.createItem(Material.PAPER, 1, "Rank:", false, ChatColor.RESET + "The Rank from the Player is: ", ChatColor.RESET.toString() + "" + rank));
         player.openInventory(Inv_Setup);
     }
 
