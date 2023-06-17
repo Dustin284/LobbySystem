@@ -14,44 +14,53 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
+import org.bukkit.inventory.ItemStack;
+
+import java.lang.annotation.Target;
 
 import static Inventorys.StatsInventory.createStatsInventoryLobby;
 
 public class StatsCommand implements CommandExecutor, Listener {
-
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        if(!(sender instanceof Player)){
+        if (!(sender instanceof Player)) {
             sender.sendMessage(Strings.need_player);
-        }
-        if(args.length == 0){
-            Player p = (Player) sender;
-            StatsInventory.createStatsInventoryMain(p);
-        }
-        if(args.length == 1){
-            Player player = (Player) sender;
-            StatsInventory.createStatsInventoryMain(player);
+            return true;
         }
 
-        return false;
+        Player p = (Player) sender;
+
+        if (args.length == 0) {
+            StatsInventory.createStatsInventoryMain(p, p);
+        } else if (args.length == 1) {
+            Player target = Bukkit.getPlayerExact(args[0]);
+            if (target != null) {
+                StatsInventory.createStatsInventoryMain(p, target);
+            } else {
+                p.sendMessage(ChatColor.RED + "Invalid player!");
+            }
+        } else {
+            p.sendMessage(ChatColor.RED + "Invalid command usage!");
+        }
+        return true;
     }
 
     @EventHandler
-    public void onClick(InventoryClickEvent e){
+    public void onClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        InventoryView view = e.getView();
-        if(view.getTitle().contains("Stats")){
-            if(view.getTitle().contains("Stats")) {
-                if (e.getCurrentItem().getType() == Material.GRASS_BLOCK) {
-                    createStatsInventoryLobby(p.getPlayer());
+        ItemStack clickedItem = e.getCurrentItem();
+
+        if (clickedItem != null) {
+            if (clickedItem.getType() == Material.GRASS_BLOCK && e.getView().getTitle().startsWith("§6Stats-Main ✘")) {
+                String targetName = e.getView().getTitle().replace("§6Stats-Main ✘ ", "");
+                Player target = Bukkit.getPlayerExact(targetName);
+                if (target != null) {
+                    StatsInventory.createStatsInventoryLobby(p, target);
+                } else {
+                    p.sendMessage(ChatColor.RED + "Invalid player!");
                 }
                 e.setCancelled(true);
             }
         }
     }
-
-
-
 }

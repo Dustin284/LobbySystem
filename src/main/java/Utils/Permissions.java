@@ -9,8 +9,6 @@ public class Permissions {
     //Set Spawn
     public static String LobbySystem_setSpawn = "lobbysystem.setspawn";
 
-    //Setup Command
-    public static String LobbySystem_rank= "lobbysystem.rank";
 
     //Perks
     public static String LobbySystem_perks_speed = "lobbysystem.perks.speed";

@@ -68,7 +68,7 @@ public class ScoreboardBuilder {
         objective.getScore("§7➦ §a" + formattedPlaytime).setScore(3);
         objective.getScore("§fPlaytime:").setScore(4);
         objective.getScore("§a ").setScore(5);
-        objective.getScore("§7➥ §&" + CoinsManager.getPlayerCoinsDB(player.getUniqueId())).setScore(6);
+        objective.getScore("§7➥ §6" + CoinsManager.getPlayerCoinsDB(player.getUniqueId())).setScore(6);
         objective.getScore("§fCoins:").setScore(7);
         objective.getScore("§a  ").setScore(8);
         objective.getScore("§7➥ " + prefix).setScore(9);

@@ -17,9 +17,6 @@ public class CoinsCommand implements CommandExecutor {
         if(!(sender instanceof Player)){
             sender.sendMessage(Strings.need_player);
         }
-        if(args.length == 0){
-            p.sendMessage(messagesManager.getPrefix() + messagesManager.getGetCoins() + CoinsManager.getPlayerCoinsDB(p.getUniqueId()));
-        }
         if(sender.hasPermission(Permissions.LobbySystem_admin) || sender.hasPermission(Permissions.LobbySystem_coins_add) || sender.hasPermission(Permissions.LobbySystem_coins_remove) || sender.hasPermission(Permissions.LobbySystem_coins_set)) {
             if (args.length >= 3) {
                 if(args[0].equalsIgnoreCase("add")){

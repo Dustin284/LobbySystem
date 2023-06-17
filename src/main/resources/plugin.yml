@@ -24,3 +24,9 @@ commands:
     permission: lobbysystem.perks.fly
   playtime:
     description: Show your playtime
+  ip:
+    description: Show the server ip
+  dailyreward:
+    description: Claim your daily reward
+  shop:
+    description: Open the shop

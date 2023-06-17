@@ -14,6 +14,7 @@ public final class LobbySystem extends JavaPlugin {
 
       MySQLManager mySQLManager = new MySQLManager();
 
+    PlayerHider playerHider = new PlayerHider(this);
     @Override
     public void onEnable() {
 
@@ -53,6 +54,9 @@ public final class LobbySystem extends JavaPlugin {
         getCommand("perks").setExecutor(new PerksCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("playtime").setExecutor(new PlaytimeCommand());
+        getCommand("ip").setExecutor(new IpCommand());
+        getCommand("dailyreward").setExecutor(new DailyRewardCommand());
+        getCommand("shop").setExecutor(new ShopCommand());
 
 
         //Listener
@@ -60,7 +64,7 @@ public final class LobbySystem extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new BreakAndPlaceListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new BlockedListeners(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryCloseListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractListener(playerHider), this);
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new StatsCommand(), this);

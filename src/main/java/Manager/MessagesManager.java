@@ -44,9 +44,16 @@ public class MessagesManager {
         config.set("spawn_not_set", "§cSpawn wurde noch nicht gesetzt!");
         config.set("spawn_set_usage", "§cBitte benutze /setspawn <spawn/freebuild/skypvp>");
         config.set("get_playtime", "§7Deine Spielzeit beträgt: §6");
+        config.set("playerhider_on", "§cNow you see all players!");
+        config.set("playerhider_off", "§aNow you dont see anyone.");
+        config.set("dailyreward_claimed", "§7Du hast deine tägliche Belohnung bereits abgeholt!");
+        config.set("dailyreward_claim", "§7Du hast deine tägliche Belohnung abgeholt!");
         config.set("perks.fly_on", "§7Du hast nun §aFly §7aktiviert!");
         config.set("perks.fly_off", "§7Du hast nun §cFly §7deaktiviert!");
         config.set("perks.fly_not_available", "§7Du hast keine Rechte dazu!");
+        config.set("perks.fly_not_enough_money", "§7Du hast nicht genügend Coins!");
+        config.set("perks.fly_buy", "§7Du hast §aFly §7gekauft!");
+
 
         try {
             config.save(configFile);
@@ -125,4 +132,31 @@ public class MessagesManager {
         String player_not_online = config.getString("Player_not_online");
         return player_not_online;
     }
+    public String getPlayerHiderOn(){
+        String playerhider_on = config.getString("playerhider_on");
+        return playerhider_on;
+    }
+    public String getPlayerHiderOff(){
+        String playerhider_off = config.getString("playerhider_off");
+        return playerhider_off;
+    }
+    public String getDailyRewardClaimed(){
+        String dailyreward_claimed = config.getString("dailyreward_claimed");
+        return dailyreward_claimed;
+    }
+    public String getDailyRewardClaim(){
+        String dailyreward_claim = config.getString("dailyreward_claim");
+        return dailyreward_claim;
+    }
+
+    public String getPerksFlyNotEnoughMoney(){
+        String perks_fly_not_enough_money = config.getString("perks.fly_not_enough_money");
+        return perks_fly_not_enough_money;
+    }
+    public String getPerksFlyBuy(){
+        String perks_fly_buy = config.getString("perks.fly_buy");
+        return perks_fly_buy;
+    }
+
+
 }

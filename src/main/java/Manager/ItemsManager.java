@@ -17,8 +17,7 @@ public class ItemsManager {
     //Inventory
     public static ItemStack LS_Navigator = ItemsManager.createItem(Material.COMPASS, 1, "§6Navigator", true, "§7§oChose your gamemode!");
     public static ItemStack LS_Perks = ItemsManager.createItem(Material.LEGACY_REDSTONE_COMPARATOR, 1, "§6Perks", true, "§7§oChose your perks!");
-    public static ItemStack LS_PlayerHider_Show = ItemsManager.createItem(Material.STICK, 1, ChatColor.GREEN + "Show Players", true, "§7§oAll players are visible!");
-    public static ItemStack LS_PlayerHider_Hide = ItemsManager.createItem(Material.BLAZE_ROD, 1, ChatColor.RED + "Hide Players", true, "§7§oAll players are hidden!");
+    public static ItemStack LS_Player_Hider = ItemsManager.createItem(Material.BLAZE_ROD, 1, "§6Player Hider", true, "§7§oHide players!");
 
 
     //Navigator Items
@@ -30,6 +29,8 @@ public class ItemsManager {
     public static ItemStack LS_Inv_Perks_Fly = ItemsManager.createItem(Material.FEATHER, 1, "§a§lFly", false, "§7§oClick to activate!");
     public static ItemStack LS_Inv_Perks_Fly_Enchanted = ItemsManager.createItem(Material.FEATHER, 1, "§a§lFly", true, "§7§oClick to deactivate!");
     public static ItemStack LS_Inv_Perks_Fly_not_available = ItemsManager.createItem(Material.NETHER_BRICK, 1, "§c§lFly", false, "§7§oYou need to buy this perk!");
+    public static ItemStack LS_Inv_Perks_allready_buyes = ItemsManager.createItem(Material.NETHER_STAR, 1, ChatColor.GREEN + "§a§lAllready buyed", true, "§7§oYou allready buyed this perk!");
+    public static ItemStack LS_Inv_Perks_Fly_buy = ItemsManager.createItem(Material.FEATHER, 1, ChatColor.GREEN + "§a§lFly - Buy", false, "§7§oClick to Buy the Perk", ChatColor.RESET.toString() + "" + "§7§oPrice: §e§l2000 Coins");
     public static ItemStack createItem(Material material, int amount, String displayName, Boolean enchated, String... lore) {
         ItemStack item = new ItemStack(material, amount);
         ItemMeta meta = item.getItemMeta();

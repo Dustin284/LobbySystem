@@ -27,7 +27,7 @@ public class BuildCommand implements CommandExecutor {
             if (Arrays.build.contains(p.getUniqueId())) {
                 Arrays.build.remove(p.getUniqueId());
                 p.sendMessage(Strings.build_off);
-                p.setGameMode(GameMode.ADVENTURE);
+                p.setGameMode(GameMode.SURVIVAL);
                 LobbyItems.giveLobbyItems(p);
             } else {
                 Arrays.build.add(p.getUniqueId());

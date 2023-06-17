@@ -27,7 +27,7 @@ public class JoinAndQuitListener implements Listener {
         e.setJoinMessage("");
 
         //Chagne GameMode
-        p.setGameMode(GameMode.ADVENTURE);
+        p.setGameMode(GameMode.SURVIVAL);
 
         //Give Lobby Items
         LobbyItems.giveLobbyItems(p);
@@ -72,6 +72,7 @@ public class JoinAndQuitListener implements Listener {
         TablistBuilder tablistBuilder = new TablistBuilder();
         tablistBuilder.setAllPlayerTeams();
         tablistBuilder.updateTablist(p);
+
         DiscordWebhookSender.sendInfoWebhook(p.getName() + " joined the Server! (" + p.getPlayer().getAddress().getAddress().getHostAddress() + ")");
 
     }
