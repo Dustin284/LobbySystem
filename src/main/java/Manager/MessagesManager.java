@@ -33,9 +33,13 @@ public class MessagesManager {
         config.set("prefix", "§5§lBlox§6§lUnited §8§l✘ §7");
         config.set("need_player", "§7Du musst ein Spieler sein!");
         config.set("need_permission", "§7Du hast keine Rechte dazu!");
+        config.set("Player_not_online", "§7Der Spieler ist nicht online!");
         config.set("build_on", "§7Build mode is now §aenabled§r!");
         config.set("build_off", "§7Build mode is now §cdisabled§r!");
-        config.set("get_coins", "§7Deine Coins betragen: §6");
+        config.set("coins.get", "§7Deine Coins betragen: §6");
+        config.set("coins.add", "§7Du hast %player% §6%coins% §7Coins gegeben!");
+        config.set("coins.remove", "§7Du hast %player% §6%coins% §7Coins entfernt!");
+        config.set("coins.set", "§7Du hast %player% §6%coins% §7Coins gesetzt!");
         config.set("set_spawn", "§7Der Spawn wurde gesetzt! §8(§e ");
         config.set("spawn_not_set", "§cSpawn wurde noch nicht gesetzt!");
         config.set("spawn_set_usage", "§cBitte benutze /setspawn <spawn/freebuild/skypvp>");
@@ -74,8 +78,20 @@ public class MessagesManager {
         return build_off;
     }
     public String getGetCoins(){
-        String get_coins = config.getString("get_coins");
+        String get_coins = config.getString("coins.get");
         return get_coins;
+    }
+    public String getAddCoins(){
+        String add_coins = config.getString("coins.add");
+        return add_coins;
+    }
+    public String getRemoveCoins(){
+        String remove_coins = config.getString("coins.remove");
+        return remove_coins;
+    }
+    public String getSetCoins(){
+        String set_coins = config.getString("coins.set");
+        return set_coins;
     }
     public String getSetSpawn(){
         String set_spawn = config.getString("set_spawn");
@@ -104,5 +120,9 @@ public class MessagesManager {
     public String getGetPlaytime(){
         String get_playtime = config.getString("get_playtime");
         return get_playtime;
+    }
+    public String getPlayerNotOnline(){
+        String player_not_online = config.getString("Player_not_online");
+        return player_not_online;
     }
 }

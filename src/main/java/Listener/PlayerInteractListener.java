@@ -35,14 +35,11 @@ public class PlayerInteractListener implements Listener {
             PerksInventory.createPerksInventoryMain(p);
             return;
         }
-        if (p.getInventory().getItemInMainHand().getType() == Material.ENDER_EYE && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Show Players")) {
-            Arrays.playerhider.add(p.getUniqueId());
-
-
-            return;
+        if (p.getInventory().getItemInMainHand().getType() == Material.STICK && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Show Players")) {
+            p.sendMessage("MAINTANCE");
         }
-        if(p.getInventory().getItemInMainHand().getType() == Material.ENDER_EYE && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Show Players")){
-            return;
+        if(p.getInventory().getItemInMainHand().getType() == Material.BLAZE_ROD && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Show Players")){
+            p.sendMessage("MAINTANCE");
         }
         if (p.getInventory().getItemInMainHand().getType() == Material.BARRIER) {
             return;

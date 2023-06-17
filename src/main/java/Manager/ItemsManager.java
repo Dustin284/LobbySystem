@@ -17,8 +17,8 @@ public class ItemsManager {
     //Inventory
     public static ItemStack LS_Navigator = ItemsManager.createItem(Material.COMPASS, 1, "§6Navigator", true, "§7§oChose your gamemode!");
     public static ItemStack LS_Perks = ItemsManager.createItem(Material.LEGACY_REDSTONE_COMPARATOR, 1, "§6Perks", true, "§7§oChose your perks!");
-    public static ItemStack LS_PlayerHider_Show = ItemsManager.createItem(Material.ENDER_EYE, 1, ChatColor.GREEN + "Show Players", true, "§7§oAll players are visible!");
-    public static ItemStack LS_PlayerHider_Hide = ItemsManager.createItem(Material.ENDER_PEARL, 1, ChatColor.RED + "Hide Players", true, "§7§oAll players are hidden!");
+    public static ItemStack LS_PlayerHider_Show = ItemsManager.createItem(Material.STICK, 1, ChatColor.GREEN + "Show Players", true, "§7§oAll players are visible!");
+    public static ItemStack LS_PlayerHider_Hide = ItemsManager.createItem(Material.BLAZE_ROD, 1, ChatColor.RED + "Hide Players", true, "§7§oAll players are hidden!");
 
 
     //Navigator Items

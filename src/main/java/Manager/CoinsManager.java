@@ -33,9 +33,47 @@ public class CoinsManager {
         return playercoins;
 
     }
-    public static int setPlayerCoinsDB(UUID uuid, int coins) {
+    public static int setPlayerCoins(UUID uuid, int coins){
+        try{
+            mySQLManager.connect();
+            Connection connection = mySQLManager.getConnection();
+            String query = "UPDATE stats_user_lobby SET Playercoins = ? WHERE Playername = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, coins);
+            statement.setString(2, uuid.toString());
+            statement.executeUpdate();
+            statement.close();
+            mySQLManager.disconnect();
+        } catch (SQLException e) {
+            System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.toString());
+        }
+        return coins;
+    }
+
+
+    public static int addPlayerCoins(UUID uuid, int coins) {
         int playercoins = getPlayerCoinsDB(uuid);
         playercoins = playercoins + coins;
+        try{
+            mySQLManager.connect();
+            Connection connection = mySQLManager.getConnection();
+            String query = "UPDATE stats_user_lobby SET Playercoins = ? WHERE Playername = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, playercoins);
+            statement.setString(2, uuid.toString());
+            statement.executeUpdate();
+            statement.close();
+            mySQLManager.disconnect();
+        } catch (SQLException e) {
+            System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.toString());
+        }
+        return playercoins;
+    }
+    public static int removePlayerCoins(UUID uuid, int coins) {
+        int playercoins = getPlayerCoinsDB(uuid);
+        playercoins = playercoins - coins;
         try{
             mySQLManager.connect();
             Connection connection = mySQLManager.getConnection();
