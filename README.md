@@ -8,7 +8,9 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 - /spawn - Teleportiert den Spieler zum Lobby-Spawn-Punkt.
 - /build - Erlaubt dem Spieler den Bau-Modus zu aktivieren.
 - /fly - Erlaubt dem Spieler das Fliegen.
-- /coins - Zeigt die Menge der Spieler-Coins an.
+- /coins <add/remove/set> <player> <ammount> - Setze die Coins der Spieler
+- /ip <player> - Zeigt die IP-Adresse des Spilers an
+- /shop - Öffnet den Shop
 - /stats - Zeigt die Statistiken des Spielers an.
 - /perks - Zeigt die verfügbaren Perks des Spielers an.
 
