@@ -18,22 +18,6 @@ public class PlaytimeManager {
 
     static MySQLManager mySQLManager = new MySQLManager();
 
-    public void insertPlayerPlaytime(UUID uuid, long playtime) {
-        try {
-            mySQLManager.connect();
-            Connection connection = mySQLManager.getConnection();
-            String query = "INSERT INTO stats_user_lobby (Playername, Playerplaytimelobby) VALUES (?, ?)";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, uuid.toString());
-            statement.setLong(2, playtime);
-            statement.executeUpdate();
-            statement.close();
-            mySQLManager.disconnect();
-        } catch (SQLException e) {
-            System.out.println(e);
-            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
-        }
-    }
 
     public void updatePlayerPlaytime(UUID uuid, long playtime) {
         try {
@@ -96,4 +80,58 @@ public class PlaytimeManager {
             return playtime + " min";
         }
     }
+
+
+    public void updatePlayerPlaytimeGlobal(UUID uuid, long playtime) {
+        try {
+            mySQLManager.connect();
+            Connection connection = mySQLManager.getConnection();
+            String query = "UPDATE stats_user SET PlayerplaytimeGLOBAL = ? WHERE Playername = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setLong(1, playtime);
+            statement.setString(2, uuid.toString());
+            statement.executeUpdate();
+            statement.close();
+            mySQLManager.disconnect();
+        } catch (SQLException e) {
+            System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
+        }
+    }
+
+    public static long getPlayerPlaytimeDBGlobal(UUID uuid) {
+        long playtime = 0;
+        try {
+            mySQLManager.connect();
+            Connection connection = mySQLManager.getConnection();
+            String query = "SELECT PlayerplaytimeGLOBAL FROM stats_user WHERE Playername = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, uuid.toString());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                playtime = resultSet.getLong("PlayerplaytimeGLOBAL");
+            }
+            statement.close();
+            resultSet.close();
+            mySQLManager.disconnect();
+        } catch (SQLException e) {
+            System.out.println(e);
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
+        }
+        return playtime;
+    }
+
+    public void startPlaytimeTimerGlobal() {
+        plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
+            for (Player player : plugin.getServer().getOnlinePlayers()) {
+                incrementPlayerPlaytimeGlobal(player.getUniqueId());
+            }
+        }, 20 * 60, 20 * 60); // Starte alle 60 Sekunden (20 Ticks)
+    }
+
+    private void incrementPlayerPlaytimeGlobal(UUID uuid) {
+        long playtime = getPlayerPlaytimeDBGlobal(uuid);
+        updatePlayerPlaytimeGlobal(uuid, playtime + 1);
+    }
+
 }

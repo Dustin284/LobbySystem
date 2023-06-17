@@ -63,6 +63,14 @@ public class JoinAndQuitListener implements Listener {
             System.out.println("Spieler wurde zur Datenbank hinzugefügt.");
             DiscordWebhookSender.sendSucessWebhook("Spieler wurde zur Datenbank hinzugefügt (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
         }
+        if(mySQLManager.isPlayerExists2(p.getUniqueId())){
+            System.out.println("Spieler bereits in der Datenbank vorhanden.");
+            DiscordWebhookSender.sendInfoWebhook("Spieler bereits in der Datenbank vorhanden. (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
+        }else{
+            mySQLManager.insertPlayer2(p.getUniqueId());
+            System.out.println("Spieler wurde zur Datenbank hinzugefügt.");
+            DiscordWebhookSender.sendSucessWebhook("Spieler wurde zur Datenbank hinzugefügt (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
+        }
         mySQLManager.updatePlayerJoins(p.getUniqueId());
         mySQLManager.disconnect();
 

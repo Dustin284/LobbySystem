@@ -33,7 +33,7 @@ public class StatsInventory {
         Inv_Setup.setItem(10, ItemsManager.createItem(Material.CLOCK, 1, "§6§lPlaytime", false, "§7§oYour playtime on the server:", ChatColor.RESET.toString() + "" + PlaytimeManager.formatPlaytime(PlaytimeManager.getPlayerPlaytimeDB(target.getUniqueId()))));
         Inv_Setup.setItem(11, ItemsManager.createItem(Material.PLAYER_HEAD, 1, "§6§lJoins", false, "§7§oYour joins on the server:", ChatColor.RESET.toString() + "" + JoinsManager.getJoins(target.getUniqueId())));
         Inv_Setup.setItem(12, ItemsManager.createItem(Material.GOLD_INGOT, 1, "§6§lCoins", false, "§7§oYour coins on the server:", ChatColor.RESET.toString() + "" + CoinsManager.getPlayerCoinsDB(target.getUniqueId())));
-        Inv_Setup.setItem(13, ItemsManager.createItem(Material.PAPER, 1, "§6§lMessage", false, "§7§oYour messages on the server:", ChatColor.RESET.toString() + "" + MessagesManagerDB.getPlayerPlaytimeDB(target.getUniqueId())));
+        Inv_Setup.setItem(13, ItemsManager.createItem(Material.PAPER, 1, "§6§lMessage", false, "§7§oYour messages on the server:", ChatColor.RESET.toString() + "" + MessagesManagerDB.getPlayerMessagesLobby(target.getUniqueId())));
 
         if(player.hasPermission("lobbysystem.ip")){
             Inv_Setup.setItem(16, ItemsManager.createItem(Material.OAK_SIGN, 1, "§6§lIP", false, "§7§oYour IP on the server:", ChatColor.RESET.toString() + "" + target.getAddress().getAddress().getHostAddress()));

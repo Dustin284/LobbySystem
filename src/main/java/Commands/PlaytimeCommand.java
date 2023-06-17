@@ -19,6 +19,7 @@ public class PlaytimeCommand implements CommandExecutor {
         }
         Player player = (Player) sender;
         sender.sendMessage(messagesManager.getPrefix() + messagesManager.getGetPlaytime() + PlaytimeManager.formatPlaytime(PlaytimeManager.getPlayerPlaytimeDB(player.getUniqueId())));
+        sender.sendMessage(messagesManager.getPrefix() + messagesManager.getGetPlaytime() + PlaytimeManager.formatPlaytime(PlaytimeManager.getPlayerPlaytimeDBGlobal(player.getUniqueId())));
         return false;
     }
 }

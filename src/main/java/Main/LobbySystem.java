@@ -34,6 +34,7 @@ public final class LobbySystem extends JavaPlugin {
 
         PlaytimeManager playtimeManager = new PlaytimeManager(this);
         playtimeManager.startPlaytimeTimer();
+        playtimeManager.startPlaytimeTimerGlobal();
         File dataFolder = getDataFolder();
         if (!dataFolder.exists()) {
             dataFolder.mkdir();
