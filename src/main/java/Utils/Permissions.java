@@ -17,6 +17,8 @@ public class Permissions {
     public static String LobbySystem_perks_ender_perl = "lobbysystem.perks.ender_perl";
     public static String LobbySystem_perks_grabbling_hook = "lobbysystem.perks.grabbling_hook";
 
+    public static String LobbySystem_perks_doubleJump = "lobbysystem.perks.doublejump";
+
     //Coins
     public static String LobbySystem_coins_add = "lobbysystem.coins.add";
     public static String LobbySystem_coins_remove = "lobbysystem.coins.remove";

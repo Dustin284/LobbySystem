@@ -51,8 +51,12 @@ public class MessagesManager {
         config.set("perks.fly_on", "§7Du hast nun §aFly §7aktiviert!");
         config.set("perks.fly_off", "§7Du hast nun §cFly §7deaktiviert!");
         config.set("perks.fly_not_available", "§7Du hast keine Rechte dazu!");
-        config.set("perks.fly_not_enough_money", "§7Du hast nicht genügend Coins!");
+        config.set("perks.not_enogh_money", "§7Du hast nicht genügend Coins!");
         config.set("perks.fly_buy", "§7Du hast §aFly §7gekauft!");
+        config.set("perks.doublejump_on", "§7Du hast nun §aDoubleJump §7aktiviert!");
+        config.set("perks.doublejump_off", "§7Du hast nun §cDoubleJump §7deaktiviert!");
+        config.set("perks.doublejump_not_available", "§7Du hast keine Rechte dazu!");
+        config.set("perks.doublekump_buy", "§7Du hast §aDoubleJump §7gekauft!");
 
 
         try {
@@ -149,13 +153,30 @@ public class MessagesManager {
         return dailyreward_claim;
     }
 
-    public String getPerksFlyNotEnoughMoney(){
-        String perks_fly_not_enough_money = config.getString("perks.fly_not_enough_money");
-        return perks_fly_not_enough_money;
+    public String getPerksNotEnoughMoney(){
+        String perks_not_enogh_money = config.getString("perks.not_enogh_money");
+        return perks_not_enogh_money;
     }
     public String getPerksFlyBuy(){
         String perks_fly_buy = config.getString("perks.fly_buy");
         return perks_fly_buy;
+    }
+
+    public String getPerksDoubleJumpOn(){
+        String perks_doublejump_on = config.getString("perks.doublejump_on");
+        return perks_doublejump_on;
+    }
+    public String getPerksDoubleJumpOff(){
+        String perks_doublejump_off = config.getString("perks.doublejump_off");
+        return perks_doublejump_off;
+    }
+    public String getPerksDoubleJumpNotAvailable(){
+        String perks_doublejump_not_available = config.getString("perks.doublejump_not_available");
+        return perks_doublejump_not_available;
+    }
+    public String getPerksDoubleJumpBuy(){
+        String perks_doublejump_buy = config.getString("perks.doublejump_buy");
+        return perks_doublejump_buy;
     }
 
 

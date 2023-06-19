@@ -69,6 +69,9 @@ public class InventoryClickListener implements Listener {
                 e.setCancelled(true);
             }
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().hasEnchants() == true){
+                if(Arrays.doubleJump.contains(p.getUniqueId())){
+                    p.setAllowFlight(true);
+                }
                 p.setAllowFlight(false);
                 Arrays.fly.remove(p.getUniqueId());
                 p.closeInventory();
@@ -77,6 +80,26 @@ public class InventoryClickListener implements Listener {
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getType() == Material.NETHER_BRICK){
                 e.setCancelled(true);
                 p.sendMessage(messagesManager.getPerksFlyNotAvailable());
+                p.closeInventory();
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lDoubleJump") && e.getCurrentItem().getItemMeta().hasEnchants() == false){
+                Arrays.doubleJump.add(p.getUniqueId());
+                p.setAllowFlight(true);
+                p.closeInventory();
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lDoubleJump") && e.getCurrentItem().getItemMeta().hasEnchants() == true){
+                Arrays.doubleJump.remove(p.getUniqueId());
+                if(Arrays.fly.contains(p.getUniqueId())){
+                    p.setAllowFlight(true);
+                }
+                p.setAllowFlight(false);
+                p.closeInventory();
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lDoubleJump") && e.getCurrentItem().getType() == Material.NETHER_BRICK){
+                e.setCancelled(true);
+                p.sendMessage(messagesManager.getPerksDoubleJumpNotAvailable());
                 p.closeInventory();
             }
         }
@@ -91,7 +114,20 @@ public class InventoryClickListener implements Listener {
                     p.sendMessage(messagesManager.getPrefix() + messagesManager.getPerksFlyBuy());
                     p.closeInventory();
                 }else{
-                    p.sendMessage(messagesManager.getPrefix() + messagesManager.getPerksFlyNotEnoughMoney());
+                    p.sendMessage(messagesManager.getPrefix() + messagesManager.getPerksNotEnoughMoney());
+                    p.closeInventory();
+                }
+
+                e.setCancelled(true);
+            }
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lDoubleJump - Buy")){
+                if(CoinsManager.getPlayerCoinsDB(p.getUniqueId()) >= 2000){
+                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getDisplayName() + " permission set " + Permissions.LobbySystem_perks_doubleJump);
+                    CoinsManager.removePlayerCoins(p.getUniqueId(), 2000);
+                    p.sendMessage(messagesManager.getPrefix() + messagesManager.getPerksDoubleJumpBuy());
+                    p.closeInventory();
+                }else{
+                    p.sendMessage(messagesManager.getPrefix() + messagesManager.getPerksNotEnoughMoney());
                     p.closeInventory();
                 }
 

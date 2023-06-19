@@ -34,7 +34,6 @@ public final class LobbySystem extends JavaPlugin {
 
         PlaytimeManager playtimeManager = new PlaytimeManager(this);
         playtimeManager.startPlaytimeTimer();
-        playtimeManager.startPlaytimeTimerGlobal();
         File dataFolder = getDataFolder();
         if (!dataFolder.exists()) {
             dataFolder.mkdir();
@@ -69,6 +68,7 @@ public final class LobbySystem extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new StatsCommand(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new DoubleJumpListeners(), this);
 
         //1 Sekunde
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () ->{

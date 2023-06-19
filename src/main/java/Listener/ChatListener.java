@@ -26,7 +26,6 @@ public class ChatListener implements Listener {
             e.setFormat(prefix + " §7✘ §f" + p.getDisplayName() + "§7: " + msg);
             mySQLManager.connect();
             mySQLManager.updatePlayerMessage(p.getUniqueId());
-            mySQLManager.updatePlayerMessage2(p.getUniqueId());
             mySQLManager.disconnect();
             return;
         }
@@ -34,7 +33,6 @@ public class ChatListener implements Listener {
         e.setFormat(prefix + " §7✘ §f" + p.getDisplayName() + "§7: " + msg);
         mySQLManager.connect();
         mySQLManager.updatePlayerMessage(p.getUniqueId());
-        mySQLManager.updatePlayerMessage2(p.getUniqueId());
         mySQLManager.disconnect();
     }
 

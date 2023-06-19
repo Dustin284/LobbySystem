@@ -15,7 +15,7 @@ public class PerksInventory {
         for (int slot : new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}) {
             Inv_Setup.setItem(slot, ItemsManager.LS_glass_pane);
         }
-        for (int slot : new int[]{11, 12, 13, 14, 15, 16}) {
+        for (int slot : new int[]{ 12, 13, 14, 15, 16}) {
             Inv_Setup.setItem(slot, ItemsManager.LS_PC_soon);
         }
         if (Arrays.fly.contains(player.getUniqueId())) {
@@ -25,6 +25,14 @@ public class PerksInventory {
         } else {
             Inv_Setup.setItem(10, ItemsManager.LS_Inv_Perks_Fly_not_available);
         }
+        if (Arrays.doubleJump.contains(player.getUniqueId())) {
+            Inv_Setup.setItem(11, ItemsManager.LS_Inv_Perks_DoubleJump_Enchanted);
+        } else if (player.hasPermission(Permissions.LobbySystem_perks_doubleJump) || player.hasPermission(Permissions.LobbySystem_admin)) {
+            Inv_Setup.setItem(11, ItemsManager.LS_Inv_Perks_DoubleJump);
+        } else {
+            Inv_Setup.setItem(11, ItemsManager.LS_Inv_Perks_DoubleJump_not_available);
+        }
+
         player.openInventory(Inv_Setup);
     }
 }

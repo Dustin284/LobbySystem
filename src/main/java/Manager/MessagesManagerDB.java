@@ -33,25 +33,4 @@ public class MessagesManagerDB {
         }
         return (int) messages;
     }
-    public static long getPlayerMessagesGlobal(UUID uuid) {
-        long playtime = 0;
-        try {
-            mySQLManager.connect();
-            Connection connection = mySQLManager.getConnection();
-            String query = "SELECT PlayerMessagesglobal FROM stats_user WHERE Playername = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, uuid.toString());
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                playtime = resultSet.getLong("PlayerMessagesglobal");
-            }
-            statement.close();
-            resultSet.close();
-            mySQLManager.disconnect();
-        } catch (SQLException e) {
-            System.out.println(e);
-            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
-        }
-        return playtime;
-    }
 }

@@ -92,28 +92,6 @@ public class MySQLManager {
 
         return false;
     }
-    public boolean isPlayerExists2(UUID uuid) throws SQLException {
-        connect(); // Stelle sicher, dass die Verbindung hergestellt wird
-
-        if (connection == null) {
-            return false; // Abbruch, wenn die Verbindung immer noch null ist
-        }
-
-        String query = "SELECT COUNT(*) AS count FROM stats_user WHERE Playername = ?";
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, uuid.toString());
-
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    int count = resultSet.getInt("count");
-                    return count > 0;
-                }
-            }
-        }
-
-        return false;
-    }
         public void createConfigFileIfNeeded() {
             // Überprüfen, ob die MySQL-Konfigurationsdatei vorhanden ist, andernfalls erstellen
             File configFile = new File(FILE);
@@ -173,23 +151,6 @@ public class MySQLManager {
             connection.commit(); // Committe die Änderungen
         }
     }
-    public void insertPlayer2(UUID uuid) throws SQLException {
-        connect(); // Stelle sicher, dass die Verbindung hergestellt wird
-
-        if (connection == null) {
-            return; // Abbruch, wenn die Verbindung immer noch null ist
-        }
-
-        String query = "INSERT INTO stats_user (Playername, Playerrank, PlayerPlaytimeGLOBAL, PlayerMessagesglobal) VALUES (?, ?, 0, 0)";
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, uuid.toString());
-            statement.setString(2, "000§7User");
-            statement.executeUpdate();
-
-            connection.commit(); // Committe die Änderungen
-        }
-    }
 
     public void updatePlayerJoins(UUID uuid) throws SQLException {
         String selectQuery = "SELECT Playerjoinslobby FROM stats_user_lobby WHERE Playername = ?";
@@ -221,25 +182,6 @@ public class MySQLManager {
                     int newMessage = currentMessages + 1;
 
                     String updateQuery = "UPDATE stats_user_lobby SET PlayerMessageslobby = ? WHERE Playername = ?";
-                    try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
-                        updateStatement.setInt(1, newMessage);
-                        updateStatement.setString(2, uuid.toString());
-                        updateStatement.executeUpdate();
-                    }
-                }
-            }
-        }
-    }
-    public void updatePlayerMessage2(UUID uuid) throws SQLException{
-        String selectQuery = "SELECT PlayerMessagesglobal FROM stats_user WHERE Playername = ?";
-        try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
-            selectStatement.setString(1, uuid.toString());
-            try (ResultSet resultSet = selectStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    int currentMessages = resultSet.getInt("PlayerMessagesglobal");
-                    int newMessage = currentMessages + 1;
-
-                    String updateQuery = "UPDATE stats_user SET PlayerMessagesglobal = ? WHERE Playername = ?";
                     try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
                         updateStatement.setInt(1, newMessage);
                         updateStatement.setString(2, uuid.toString());

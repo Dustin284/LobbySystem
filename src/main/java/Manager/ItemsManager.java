@@ -31,6 +31,13 @@ public class ItemsManager {
     public static ItemStack LS_Inv_Perks_Fly_not_available = ItemsManager.createItem(Material.NETHER_BRICK, 1, "§c§lFly", false, "§7§oYou need to buy this perk!");
     public static ItemStack LS_Inv_Perks_allready_buyes = ItemsManager.createItem(Material.NETHER_STAR, 1, ChatColor.GREEN + "§a§lAllready buyed", true, "§7§oYou allready buyed this perk!");
     public static ItemStack LS_Inv_Perks_Fly_buy = ItemsManager.createItem(Material.FEATHER, 1, ChatColor.GREEN + "§a§lFly - Buy", false, "§7§oClick to Buy the Perk", ChatColor.RESET.toString() + "" + "§7§oPrice: §e§l2000 Coins");
+
+    public static ItemStack LS_Inv_Perks_DoubleJump = ItemsManager.createItem(Material.FEATHER, 1, "§a§lDoubleJump", false, "§7§oClick to activate!");
+    public static ItemStack LS_Inv_Perks_DoubleJump_Enchanted = ItemsManager.createItem(Material.FEATHER, 1, "§a§lDoubleJump", true, "§7§oClick to deactivate!");
+    public static ItemStack LS_Inv_Perks_DoubleJump_not_available = ItemsManager.createItem(Material.NETHER_BRICK, 1, "§c§lDoubleJump", false, "§7§oYou need to buy this perk!");
+    public static ItemStack LS_Inv_Perks_DoubleJump_buy = ItemsManager.createItem(Material.FEATHER, 1, ChatColor.GREEN + "§a§lDoubleJump - Buy", false, "§7§oClick to Buy the Perk", ChatColor.RESET.toString() + "" + "§7§oPrice: §e§l2000 Coins");
+
+
     public static ItemStack createItem(Material material, int amount, String displayName, Boolean enchated, String... lore) {
         ItemStack item = new ItemStack(material, amount);
         ItemMeta meta = item.getItemMeta();
