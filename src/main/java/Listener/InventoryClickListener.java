@@ -71,8 +71,9 @@ public class InventoryClickListener implements Listener {
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().hasEnchants() == true){
                 if(Arrays.doubleJump.contains(p.getUniqueId())){
                     p.setAllowFlight(true);
+                }else{
+                    p.setAllowFlight(false);
                 }
-                p.setAllowFlight(false);
                 Arrays.fly.remove(p.getUniqueId());
                 p.closeInventory();
                 e.setCancelled(true);
@@ -92,8 +93,9 @@ public class InventoryClickListener implements Listener {
                 Arrays.doubleJump.remove(p.getUniqueId());
                 if(Arrays.fly.contains(p.getUniqueId())){
                     p.setAllowFlight(true);
+                }else{
+                    p.setAllowFlight(false);
                 }
-                p.setAllowFlight(false);
                 p.closeInventory();
                 e.setCancelled(true);
             }
