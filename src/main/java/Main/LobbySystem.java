@@ -12,7 +12,7 @@ import java.io.File;
 
 public final class LobbySystem extends JavaPlugin {
 
-      MySQLManager mySQLManager = new MySQLManager();
+    MySQLManager mySQLManager = new MySQLManager();
 
     PlayerHider playerHider = new PlayerHider(this);
     @Override
@@ -31,20 +31,25 @@ public final class LobbySystem extends JavaPlugin {
 
 
 
-
-        PlaytimeManager playtimeManager = new PlaytimeManager(this);
-        playtimeManager.startPlaytimeTimer();
+        //Config folder
         File dataFolder = getDataFolder();
         if (!dataFolder.exists()) {
             dataFolder.mkdir();
         }
+
+        //MySQL
         mySQLManager.connect();
+        mySQLManager.CheckIfTableExist();
         LocationManager locationManager = new LocationManager();
         locationManager.createConfigFileIfNeeded();
         ConfigManager configManager = new ConfigManager();
         configManager.createConfigFileIfNeeded();
         MessagesManager messagesManager = new MessagesManager();
         messagesManager.createConfigFileIfNeeded();
+        PlaytimeManager playtimeManager = new PlaytimeManager(this);
+        playtimeManager.startPlaytimeTimer();
+        mySQLManager.disconnect();
+
         //Commands
         getCommand("setspawn").setExecutor(new SetCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());

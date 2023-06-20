@@ -34,7 +34,7 @@ public class JoinAndQuitListener implements Listener {
 
         //Check if Location is Set
         if(locationManager.getLocation("Spawn") == null){
-            p.sendMessage(Strings.prefix + "§cSpawn not set!");
+            p.sendMessage(messagesManager.getPrefix() + "§cSpawn not set!");
             DiscordWebhookSender.sendErrorWebhook("Spawn not set!");
         }
 
@@ -44,7 +44,7 @@ public class JoinAndQuitListener implements Listener {
 
         //Check if player is in Build
         if(Arrays.build.contains(p.getUniqueId())) {
-            p.sendMessage(Strings.build_off);
+            p.sendMessage(messagesManager.getPrefix() + messagesManager.getBuildOff());
             Arrays.build.remove(p.getUniqueId());
         }
 

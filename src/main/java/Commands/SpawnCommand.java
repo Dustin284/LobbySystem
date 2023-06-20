@@ -2,7 +2,6 @@ package Commands;
 
 import Manager.LocationManager;
 import Manager.MessagesManager;
-import Utils.Strings;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,10 +19,10 @@ public class SpawnCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!(sender instanceof Player)){
-            sender.sendMessage(Strings.need_player);
+            sender.sendMessage(messagesManager.getPrefix() + messagesManager.getNeedPlayer());
         }
         if(locationManager.getLocation("Spawn") == null){
-            p.sendMessage(Strings.prefix + messagesManager.getSpawnNotSet());
+            p.sendMessage(messagesManager.getPrefix() + messagesManager.getSpawnNotSet());
             return true;
         }
         p.teleport(locationManager.getLocation("Spawn"));

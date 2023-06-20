@@ -58,6 +58,7 @@ public class MySQLManager {
     public Connection getConnection() {
         return connection;
     }
+
     public void disconnect() {
         // Verbindung zur MySQL-Datenbank trennen
         try {
@@ -92,28 +93,29 @@ public class MySQLManager {
 
         return false;
     }
-        public void createConfigFileIfNeeded() {
-            // Überprüfen, ob die MySQL-Konfigurationsdatei vorhanden ist, andernfalls erstellen
-            File configFile = new File(FILE);
-            if (!configFile.exists()) {
-                try {
-                    configFile.getParentFile().mkdirs();
-                    configFile.createNewFile();
 
-                    // Die Inhalte in die Datei schreiben
-                    FileWriter writer = new FileWriter(configFile);
-                    writer.write("host: localhost\n");
-                    writer.write("port: 3306\n");
-                    writer.write("database: my_database\n");
-                    writer.write("username: my_username\n");
-                    writer.write("password: my_password\n");
-                    writer.close();
-                } catch (IOException e) {
-                    DiscordWebhookSender.sendErrorWebhook(e.getMessage());
-                    return;
-                }
+    public void createConfigFileIfNeeded() {
+        // Überprüfen, ob die MySQL-Konfigurationsdatei vorhanden ist, andernfalls erstellen
+        File configFile = new File(FILE);
+        if (!configFile.exists()) {
+            try {
+                configFile.getParentFile().mkdirs();
+                configFile.createNewFile();
+
+                // Die Inhalte in die Datei schreiben
+                FileWriter writer = new FileWriter(configFile);
+                writer.write("host: localhost\n");
+                writer.write("port: 3306\n");
+                writer.write("database: my_database\n");
+                writer.write("username: my_username\n");
+                writer.write("password: my_password\n");
+                writer.close();
+            } catch (IOException e) {
+                DiscordWebhookSender.sendErrorWebhook(e.getMessage());
+                return;
             }
         }
+    }
 
     private Map<String, Object> readConfigFile() {
         try {
@@ -172,7 +174,7 @@ public class MySQLManager {
         }
     }
 
-    public void updatePlayerMessage(UUID uuid) throws SQLException{
+    public void updatePlayerMessage(UUID uuid) throws SQLException {
         String selectQuery = "SELECT PlayerMessageslobby FROM stats_user_lobby WHERE Playername = ?";
         try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
             selectStatement.setString(1, uuid.toString());
@@ -191,5 +193,23 @@ public class MySQLManager {
             }
         }
     }
-}
 
+    public void CheckIfTableExist() {
+        try {
+            DatabaseMetaData md = connection.getMetaData();
+            ResultSet rs = md.getTables(null, null, "stats_user_lobby", null);
+            if (rs.next()) {
+            } else {
+                // Tabelle existiert nicht
+                String query = "CREATE TABLE stats_user_lobby (Playername VARCHAR(36) NOT NULL, Playerrank VARCHAR(36) NOT NULL, PlayerCoins INT NOT NULL, PlayerPlaytimeLobby INT NOT NULL, PlayerJoinsLobby INT NOT NULL, PlayerMessageslobby INT NOT NULL, PRIMARY KEY (Playername))";
+                try (PreparedStatement statement = connection.prepareStatement(query)) {
+                    statement.executeUpdate();
+                    connection.commit(); // Committe die Änderungen
+                }
+            }
+        } catch (SQLException e) {
+            DiscordWebhookSender.sendErrorWebhook(e.getMessage());
+            return;
+        }
+    }
+}

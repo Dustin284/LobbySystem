@@ -1,6 +1,7 @@
 package Commands;
 
 import Inventorys.StatsInventory;
+import Manager.MessagesManager;
 import Utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,10 +22,12 @@ import java.lang.annotation.Target;
 import static Inventorys.StatsInventory.createStatsInventoryLobby;
 
 public class StatsCommand implements CommandExecutor, Listener {
+
+    MessagesManager messagesManager = new MessagesManager();
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Strings.need_player);
+            sender.sendMessage(messagesManager.getPrefix() + messagesManager.getNeedPlayer());
             return true;
         }
 
