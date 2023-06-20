@@ -13,4 +13,5 @@ public class Arrays {
     //DoubelJump
     public static ArrayList<UUID> doubleJump = new ArrayList<>();
 
+
 }

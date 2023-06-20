@@ -13,12 +13,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.lang.reflect.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class JoinAndQuitListener implements Listener {
 
     private LocationManager locationManager = new LocationManager();
     private MySQLManager mySQLManager = new MySQLManager();
+
+    private ArrayList<UUID> joins = new ArrayList<>();
     @EventHandler
     public void onJoin(PlayerJoinEvent e) throws SQLException {
         MessagesManager messagesManager = new MessagesManager();
@@ -60,12 +65,14 @@ public class JoinAndQuitListener implements Listener {
 
         //Database
         if (mySQLManager.isPlayerExists(p.getUniqueId())) {
-            System.out.println("Spieler bereits in der Datenbank vorhanden.");
-            DiscordWebhookSender.sendInfoWebhook("Spieler bereits in der Datenbank vorhanden. (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
+            joins.remove(p.getUniqueId());
          } else {
             mySQLManager.insertPlayer(p.getUniqueId());
+            joins.add(p.getUniqueId());
+
             System.out.println("Spieler wurde zur Datenbank hinzugefügt.");
             DiscordWebhookSender.sendSucessWebhook("Spieler wurde zur Datenbank hinzugefügt (" + p.getName() + " | " + e.getPlayer().getUniqueId()  + ")");
+
         }
         mySQLManager.updatePlayerJoins(p.getUniqueId());
         mySQLManager.disconnect();
@@ -78,6 +85,9 @@ public class JoinAndQuitListener implements Listener {
         tablistBuilder.updateTablist(p);
 
         DiscordWebhookSender.sendInfoWebhook(p.getName() + " joined the Server! (" + p.getPlayer().getAddress().getAddress().getHostAddress() + ")");
+        if(joins.contains(p.getUniqueId())){
+            p.kickPlayer("§cYou are not registered! \n Please rejoin!");
+        }
 
     }
     @EventHandler
