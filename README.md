@@ -25,7 +25,6 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 
 ## Installation
 1. Lade die neueste Version des LobbySystem-Releases von [hier](https://github.com/Dustin284/LobbySystem/releases) herunter.
-
 2. Konfiguriere deine MySQL-Datenbank-Zugangsdaten.
 3. Navigiere zum Ordner LobbySystem im Plugins-Verzeichnis.
 4. Öffne die Datei MySQL.yml mit einem Texteditor.
@@ -42,6 +41,7 @@ Das LobbySystem ist ein Minecraft Plugin für den Lobby Server, welches entwicke
 | lobbysystem.perks.speed            | Geschwindigkeits-Perk      |
 | lobbysystem.perks.jumpboost        | Sprungkraft-Perk           |
 | lobbysystem.perks.fly              | Flug-Perk                  |
+| lobbysystem.perks.doublejump       | DoubleJump-Perk            |
 | lobbysystem.perks.ender_perl       | Enderperlen-Perk           |
 | lobbysystem.perks.grabbling_hook   | Greifhaken-Perk            |
 | lobbysystem.coins.add              | Spieler-Coins hinzufügen   |
