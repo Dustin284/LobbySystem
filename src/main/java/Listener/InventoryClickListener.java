@@ -14,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+import java.util.concurrent.TimeUnit;
 
 public class InventoryClickListener implements Listener {
 
@@ -70,6 +71,8 @@ public class InventoryClickListener implements Listener {
             }
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lFly") && e.getCurrentItem().getItemMeta().hasEnchants() == true){
                 if(Arrays.doubleJump.contains(p.getUniqueId())){
+                    p.setAllowFlight(false);
+                    TimeUnit.SECONDS.sleep(1);
                     p.setAllowFlight(true);
                 }else{
                     p.setAllowFlight(false);
